@@ -1,0 +1,1722 @@
+{
+    "project": {
+        "name": "jquery-ui",
+        "description": "A curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.",
+        "version": "1.11.2-pre",
+        "url": "http://jqueryui.com"
+    },
+    "files": {
+        "ui-cn\\core.js": {
+            "name": "ui-cn\\core.js",
+            "modules": {
+                "ui": 1
+            },
+            "classes": {
+                "$.ui": 1,
+                "$.extend": 1,
+                "$.ui.plugin": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "$": 1,
+                "$.ui": 1
+            }
+        },
+        "ui-cn\\draggable.js": {
+            "name": "ui-cn\\draggable.js",
+            "modules": {
+                "draggable": 1
+            },
+            "classes": {
+                "ui.draggable": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ui": 1
+            }
+        },
+        "ui-cn\\effect.js": {
+            "name": "ui-cn\\effect.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "ui-cn\\mouse.js": {
+            "name": "ui-cn\\mouse.js",
+            "modules": {
+                "mouse": 1
+            },
+            "classes": {
+                "ui.mouse": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ui": 1
+            }
+        },
+        "ui-cn\\widget.js": {
+            "name": "ui-cn\\widget.js",
+            "modules": {
+                "widget": 1,
+                "bridge": 1
+            },
+            "classes": {
+                "ui.widget": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ui": 1
+            }
+        }
+    },
+    "modules": {
+        "ui": {
+            "name": "ui",
+            "submodules": {},
+            "classes": {
+                "$.ui": 1,
+                "$.extend": 1,
+                "$.ui.plugin": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "$": 1,
+                "$.ui": 1
+            },
+            "tag": "module",
+            "file": "ui-cn\\core.js",
+            "line": 349,
+            "description": "UI 核心（UI Core）<br/>"
+        },
+        "draggable": {
+            "name": "draggable",
+            "submodules": {},
+            "classes": {
+                "ui.draggable": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ui": 1
+            },
+            "tag": "module",
+            "file": "ui-cn\\draggable.js",
+            "line": 28,
+            "description": "可拖拽小部件（Draggable Widget）<br/>\n允许使用鼠标移动元素。<br/>\n\n注释：让被选元素可被鼠标拖拽。如果您不只是拖拽，而是拖拽 & 放置，请查看 jQuery UI 可放置（Droppable）插件，为可拖拽元素提供了一个放置目标。<br/>"
+        },
+        "mouse": {
+            "name": "mouse",
+            "submodules": {},
+            "classes": {
+                "ui.mouse": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ui": 1
+            },
+            "tag": "module",
+            "file": "ui-cn\\mouse.js",
+            "line": 31,
+            "description": "$.ui.mouse 鼠标交互<br/>\n与 jQuery.Widget 相似，鼠标交互的目的不是直接使用。\n这是一个纯粹给其他小部件继承用的基础层。该页面有添加到 jQuery.Widget 的文档，但是它包含了不能被覆盖的内部方法。\n公共的 API 是 _mouseStart()、_mouseDrag()、_mouseStop() 和 _mouseCapture()。"
+        },
+        "widget": {
+            "name": "widget",
+            "submodules": {
+                "bridge": 1
+            },
+            "classes": {
+                "ui.widget": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "ui": 1
+            },
+            "tag": "module",
+            "file": "ui-cn\\widget.js",
+            "line": 45,
+            "description": "$.ui.widget 部件库（Widget Factory）<br/>\n使用与所有 jQuery UI 小部件相同的抽象化来创建有状态的 jQuery 插件。<br/>\n您可以使用 $.Widget 对象作为要继承的基础，或者可以明确地从现有的 jQuery UI 或第三方控件，从头开始创建新的小部件。\n定义一个带有相同名称的小部件来继承基础部件，甚至允许您适当地扩展小部件。<br/>\n\njQuery UI 中包含许多保持状态的小部件，因此比典型的 jQuery 插件稍有不同的使用模式。\n所有的jQuery UI 小部件使用相同的模式，这是由部件库（Widget Factory）定义的。\n所以，只要您学会使用其中一个，您就知道如何使用其他的小部件（Widget）。<br/>"
+        },
+        "bridge": {
+            "name": "bridge",
+            "submodules": {},
+            "classes": {
+                "ui.widget": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "widget",
+            "namespace": "",
+            "file": "ui-cn\\widget.js",
+            "line": 45,
+            "description": "jQuery.widget.bridge() 方法是 jQuery 部件库（Widget Factory） 的一部分。它扮演着由 $.widget() 创建的对象和 jQuery API 之间的中介。<br/>\n$.widget.bridge() 做如下事情：<br/>\n连接一个常规的 JavaScript 构造函数到 jQuery API。<br/>\n自动创建对象实例，并存储在元素的 $.data 缓存内。<br/>\n允许调用公有方法。<br/>\n防止调用私有方法。<br/>\n防止在未初始化的对象上调用方法。<br/>\n防止多个初始化。<br/>",
+            "itemtype": "method",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "要创建的插件名称。",
+                    "type": "String"
+                },
+                {
+                    "name": "object",
+                    "description": "当插件被调用时要实例化的对象。",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            }
+        }
+    },
+    "classes": {
+        "$.ui": {
+            "name": "$.ui",
+            "shortname": "$.ui",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ui",
+            "namespace": "$",
+            "file": "ui-cn\\core.js",
+            "line": 22,
+            "description": "UI 核心（UI Core）<br/>",
+            "extends": "$",
+            "is_constructor": 1
+        },
+        "$.extend": {
+            "name": "$.extend",
+            "shortname": "extend",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ui",
+            "namespace": "$",
+            "file": "ui-cn\\core.js",
+            "line": 281
+        },
+        "$.ui.plugin": {
+            "name": "$.ui.plugin",
+            "shortname": "$.ui.plugin",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ui",
+            "namespace": "$.ui",
+            "file": "ui-cn\\core.js",
+            "line": 349,
+            "description": "UI 核心（UI Core）plugin",
+            "extends": "$.ui",
+            "type": "{Object}"
+        },
+        "ui.draggable": {
+            "name": "ui.draggable",
+            "shortname": "ui.draggable",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "draggable",
+            "namespace": "ui",
+            "file": "ui-cn\\draggable.js",
+            "line": 28,
+            "description": "可拖拽小部件（Draggable Widget）<br/>\n允许使用鼠标移动元素。<br/>\n\n注释：让被选元素可被鼠标拖拽。如果您不只是拖拽，而是拖拽 & 放置，请查看 jQuery UI 可放置（Droppable）插件，为可拖拽元素提供了一个放置目标。<br/>",
+            "requires": [
+                "core",
+                "mouse",
+                "widget"
+            ],
+            "is_constructor": 1
+        },
+        "ui.mouse": {
+            "name": "ui.mouse",
+            "shortname": "ui.mouse",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "mouse",
+            "namespace": "ui",
+            "file": "ui-cn\\mouse.js",
+            "line": 31,
+            "description": "$.ui.mouse 鼠标交互<br/>\n与 jQuery.Widget 相似，鼠标交互的目的不是直接使用。\n这是一个纯粹给其他小部件继承用的基础层。该页面有添加到 jQuery.Widget 的文档，但是它包含了不能被覆盖的内部方法。\n公共的 API 是 _mouseStart()、_mouseDrag()、_mouseStop() 和 _mouseCapture()。",
+            "requires": [
+                "widget"
+            ],
+            "is_constructor": 1
+        },
+        "ui.widget": {
+            "name": "ui.widget",
+            "shortname": "ui.widget",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "widget",
+            "namespace": "ui",
+            "file": "ui-cn\\widget.js",
+            "line": 45,
+            "description": "$.ui.widget 部件库（Widget Factory）<br/>\n使用与所有 jQuery UI 小部件相同的抽象化来创建有状态的 jQuery 插件。<br/>\n您可以使用 $.Widget 对象作为要继承的基础，或者可以明确地从现有的 jQuery UI 或第三方控件，从头开始创建新的小部件。\n定义一个带有相同名称的小部件来继承基础部件，甚至允许您适当地扩展小部件。<br/>\n\njQuery UI 中包含许多保持状态的小部件，因此比典型的 jQuery 插件稍有不同的使用模式。\n所有的jQuery UI 小部件使用相同的模式，这是由部件库（Widget Factory）定义的。\n所以，只要您学会使用其中一个，您就知道如何使用其他的小部件（Widget）。<br/>",
+            "is_constructor": 1,
+            "submodule": "bridge"
+        }
+    },
+    "classitems": [
+        {
+            "file": "ui-cn\\core.js",
+            "line": 62,
+            "description": "获取最近的可滚动的祖先。\n换句话说，.scrollParent() 查找当前所选元素在其内滚动的元素。\n该方法只在包含一个元素的 jQuery 对象上工作。",
+            "itemtype": "method",
+            "name": "scrollParent",
+            "return": {
+                "description": "jQuery",
+                "type": "*|jQuery|HTMLElement"
+            },
+            "class": "$.extend",
+            "module": "ui",
+            "namespace": "$"
+        },
+        {
+            "file": "ui-cn\\core.js",
+            "line": 84,
+            "description": "为匹配的元素集合生成并申请一个唯一的 Id。<br/>\n许多小部件需要元素生成唯一的 id。<br/>\n.uniqueId() 会检查元素是否有 id，如果元素没有 id，它将生成一个 id，并设置为该元素的 id。\n在未检查元素是否具有 id 就调用 .uniqueId() 是安全的。<br/>\n当小部件使用后需要清除，如果 id 是通过 .uniqueId() 添加的，.removeUniqueId() 方法将从元素上移除 id，\n如果 id 不是通过 .uniqueId() 添加的，则无影响。\n.removeUniqueId() 之所以能区分 id，是因为 .uniqueId() 生成的 id 带有前缀 \"ui-id-\"。",
+            "itemtype": "method",
+            "name": "uniqueId",
+            "return": {
+                "description": "[description]",
+                "type": "JQuery"
+            },
+            "since": "1.9",
+            "class": "$.extend",
+            "module": "ui",
+            "namespace": "$"
+        },
+        {
+            "file": "ui-cn\\core.js",
+            "line": 107,
+            "description": "为匹配的元素集合移除由 .uniqueId() 设置的 Id。<br/>\n.removeUniqueId() 移除由 .uniqueId() 设置的 id。\n在未使用 .uniqueId() 设置 id 的元素上调用 .removeUniqueId() 则无影响，即使该元素有一个 id。",
+            "itemtype": "method",
+            "name": "removeUniqueId",
+            "return": {
+                "description": "[description]",
+                "type": "JQuery"
+            },
+            "since": "1.9",
+            "class": "$.extend",
+            "module": "ui",
+            "namespace": "$"
+        },
+        {
+            "file": "ui-cn\\core.js",
+            "line": 125,
+            "description": "选择可被聚焦的元素。",
+            "itemtype": "method",
+            "name": "focusable",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "isTabIndexNotNaN",
+                    "description": "[description]",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "$.extend",
+            "module": "ui",
+            "namespace": "$"
+        },
+        {
+            "file": "ui-cn\\core.js",
+            "line": 171,
+            "description": "选择可被聚焦的元素。<br/>\njQuery( \":focusable\" )<br/>\n一些元素本身是可聚焦的（focusable），而另一些元素需要显式设置 tab 索引。以上两种情况，为了可聚焦（focusable），元素都必须是可见的。<br/>\n下面类型的元素如果未被禁用，则是可聚焦的（focusable）：input、select、textarea、button 和 object。<br/>\n锚如果带有 href 或 tabindex 属性，则是可聚焦的（focusable）。<br/>\narea 元素如果在一个已命名的 map 内，且带有 href 属性，且有一个可见的图像使用了该 map，则是可聚焦的（focusable）。<br/>\n所有其他完全基于 tabindex 属性和可见度的元素是可聚焦的（focusable）。<br/>\n\n注释：带有负的 tab 索引的元素是 :focusable，不是 :tabbable。<br/>",
+            "itemtype": "method",
+            "name": "focusable",
+            "extends": "$",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "example": [
+                "\n\t//选择可聚焦的元素，且用一个红色边框突出显示。\n\t<!--html-->\n\t<div><input value=\"文本输入\"></div>\n\t<div><a>不带有 href 的锚</a></div>\n\t<div><a href=\"#\">带有 href 的锚</a></div>\n\t<div><p>不带有 tabindex 的段落</p></div>\n\t<div><p tabindex=\"1\">带有 tabindex 的段落</p></div>\n\t<!--js-->\n\t<script>\n\t\t$( \":focusable\" ).css( \"border-color\", \"red\" );\n\t</script>"
+            ],
+            "class": "$.extend",
+            "module": "ui",
+            "namespace": "$"
+        },
+        {
+            "file": "ui-cn\\core.js",
+            "line": 357,
+            "description": "[add description]",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "module",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "option",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "set",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "class": "$.ui.plugin",
+            "module": "ui",
+            "namespace": "$.ui"
+        },
+        {
+            "file": "ui-cn\\core.js",
+            "line": 372,
+            "description": "[call description]",
+            "itemtype": "method",
+            "name": "call",
+            "params": [
+                {
+                    "name": "instance",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "name",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "args",
+                    "description": "[description]",
+                    "type": "[type]"
+                },
+                {
+                    "name": "allowDisconnected",
+                    "description": "[description]",
+                    "type": "[type]"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "$.ui.plugin",
+            "module": "ui",
+            "namespace": "$.ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 45,
+            "description": "一个包含小部件当前使用选项的对象。\n在实例化时，用户提供的任何选项将会自动与 $.myNamespace.myWidget.prototype.options 中定义的默认值合并。用户指定的选项会覆盖默认值。",
+            "itemtype": "property",
+            "name": "options",
+            "type": "{Object}",
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 53,
+            "description": "如果设置为 false，将阻止 ui-draggable class 被添加。当在数百个元素上调用 .draggable() 时，这么设置有利于性能优化。",
+            "itemtype": "property",
+            "name": "options.addClasses",
+            "type": "{Boolean}",
+            "example": [
+                "\n\t//初始化带有指定 addClasses 选项的 draggable：\n\t$( \".selector\" ).draggable({ addClasses: false });\n\t"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 63,
+            "description": "当拖拽时，draggable 助手（helper）要追加到哪一个元素。<br/>\n支持多个类型：<br/>\njQuery：一个 jQuery 对象，包含助手（helper）要追加到的元素。<br/>\nElement：要追加助手（helper）的元素。<br/>\nSelector：一个选择器，指定哪一个元素要追加助手（helper）。<br/>\nString：字符串 \"parent\" 将促使助手（helper）成为 draggable 的同级。<br/>",
+            "itemtype": "property",
+            "name": "options.appendTo",
+            "type": "{jQuery | Element | Selector | String}",
+            "default": "\"parent\"",
+            "example": [
+                "\n\t//初始化带有指定 axis 选项的 draggable：\n\t$( \".selector\" ).draggable({ axis: \"x\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 79,
+            "description": "约束在水平轴 (x) 或垂直轴 (y) 上拖拽。可能的值：\"x\", \"y\"。",
+            "itemtype": "property",
+            "name": "options.axis",
+            "type": "{String}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 appendTo 选项的 draggable：\n\t$( \".selector\" ).draggable({ appendTo: \"body\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 89,
+            "description": "允许 draggable 放置在指定的 sortable 上。\n如果使用了该选项，一个 draggable 可被放置在一个 sortable 列表上，然后成为列表的一部分。\n注意：helper 选项必须设置为 \"clone\"，以便更好地工作。\n必须包含 可排序小部件（Sortable Widget）。",
+            "itemtype": "property",
+            "name": "options.connectToSortable",
+            "type": "{Boolean}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 connectToSortable 选项的 draggable：\n\t$( \".selector\" ).draggable({ connectToSortable: \"#my-sortable\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 102,
+            "description": "约束在指定元素或区域的边界内拖拽。<br/>\n支持多个类型：<br/>\nSelector：可拖拽元素将被包含在 selector 第一个元素的边界内。如果未找到元素，则不设置 containment。<br/>\nElement：可拖拽元素将被韩寒在元素的边界。<br/>\nString：可能的值：\"parent\"、\"document\"、\"window\"。<br/>\nArray：一个数组， 以形式 [ x1, y1, x2, y2 ] 定义元素的边界。<br/>",
+            "itemtype": "property",
+            "name": "options.containment",
+            "type": "{Selector | Element | String | Array | Boolean}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 containment 选项的 draggable：\n\t$( \".selector\" ).draggable({ containment: \"parent\" });\n\t//在初始化后，获取或设置 containment 选项：\n\t// getter\n\tvar containment = $( \".selector\" ).draggable( \"option\", \"containment\" );\n\t// setter\n\t$( \".selector\" ).draggable( \"option\", \"containment\", \"parent\" );\n\t"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 124,
+            "description": "拖拽操作期间的 CSS 光标。<br/>\n有效的 CSS 光标值包括：default、move、pointer、crosshair，等等。",
+            "itemtype": "property",
+            "name": "options.cursor",
+            "type": "{String}",
+            "default": "\"auto\"",
+            "example": [
+                "\n\t//初始化带有指定 cursor 选项的 draggable：\n\t$( \".selector\" ).draggable({ cursor: \"crosshair\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 136,
+            "description": "使用 cursorAt 选项来指定相对于 draggable 的另一个位置（指定一个相对于 top、right、bottom、left 的像素值）",
+            "itemtype": "property",
+            "name": "options.cursorAt",
+            "type": "{Object}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 cursorAt 选项的 draggable：\n\t$( \".selector\" ).draggable({ cursorAt: { top: -5, left: -5} });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 147,
+            "description": "对齐拖拽助手（helper）到网格，每个 x 和 y 像素。数组形式必须是 [ x, y ]。",
+            "itemtype": "property",
+            "name": "options.grid",
+            "type": "{Array}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 grid 选项的 draggable：\n\t$( \".selector\" ).draggable({ grid: [ 50, 20 ] });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 158,
+            "description": "如果指定了该选项，则限制开始拖拽，除非鼠标在指定的元素上按下。\n只有可拖拽（draggable）元素的后代元素才允许被拖拽。",
+            "itemtype": "property",
+            "name": "options.handle",
+            "type": "{Selector | Element}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 handle 选项的 draggable：\n\t$( \".selector\" ).draggable({ handle: \"h2\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 170,
+            "description": "允许一个 helper 元素用于拖拽显示。<br/>\n支持多个类型：<br/>\nString：如果设置为 \"clone\"，元素将被克隆，且克隆将被拖拽。<br/>\nFunction：一个函数，将返回拖拽时要使用的 DOMElement。<br/>",
+            "itemtype": "property",
+            "name": "options.helper",
+            "type": "{String | Function}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 helper 选项的 draggable：\n\t$( \".selector\" ).draggable({ helper: \"clone\" });\n\t//初始化带有指定 helper function 选项的 draggable：\n\t$( \".selector\" ).draggable({\n\t\thelper: function( event ) {\n\t\t\treturn $( \"<div class='ui-widget-header'>I'm a custom helper</div>\" );\n\t\t}\n\t});"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 190,
+            "description": "防止拖拽期间 iframes 捕捉鼠标移动（mousemove ）事件。\n在与 cursorAt 选项结合使用时，或鼠标光标未覆盖在助手（helper）上时，非常有用。<br/>\n\n支持多个类型：<br/>\nBoolean：当设置为 true 时，透明遮罩将被放置在页面上所有 iframes 上。<br/>\nSelector：匹配 selector 的任意 iframes 将被透明遮罩覆盖。<br/>",
+            "itemtype": "property",
+            "name": "options.iframeFix",
+            "type": "{Boolean | Selector}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 iframeFix 选项的 draggable：\n\t$( \".selector\" ).draggable({ iframeFix: true });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 206,
+            "description": "当被拖拽时助手（helper）的不透明度。",
+            "itemtype": "property",
+            "name": "options.opacity",
+            "type": "{Number}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 opacity 选项的 draggable：\n\t$( \".selector\" ).draggable({ opacity: 0.35 });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 217,
+            "description": "如果设置为 true，在每次鼠标移动（mousemove）时都会计算所有可放置的位置。\n注意：这解决了高度动态的问题，但是明显降低了性能。",
+            "itemtype": "property",
+            "name": "options.refreshPositions",
+            "type": "{Boolean}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 refreshPositions 选项的 draggable：\n\t$( \".selector\" ).draggable({ refreshPositions: true });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 229,
+            "description": "当拖拽停止时，元素是否还原到它的开始位置。<br/>\n支持多个类型：<br/>\nBoolean：如果设置为 true，元素总会还原。<br/>\nString：如果设置为 \"invalid\"，还原仅在 draggable 未放置在 droppable 上时发生，如果设置为 \"valid\" 则相反。<br/>\nFunction：一个函数，确定元素是否还原到它的开始位置。该函数必须返回 true 才能还原元素。<br/>",
+            "itemtype": "property",
+            "name": "options.revert",
+            "type": "{Boolean | String | Function}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 revert 选项的 draggable：\n\t$( \".selector\" ).draggable({ revert: true });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 244,
+            "description": "还原（revert）动画的持续时间，以毫秒计。如果 revert 选项是 false 则忽略。",
+            "itemtype": "property",
+            "name": "options.revertDuration",
+            "type": "{Number}",
+            "default": "500",
+            "example": [
+                "\n\t//初始化带有指定 revertDuration 选项的 draggable：\n\t$( \".selector\" ).draggable({ revertDuration: 200 });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 255,
+            "description": "用于组合配套 draggable 和 droppable 项，除了 droppable 的 accept 选项之外。\n一个与 droppable 带有相同的 scope 值的 draggable 会被该 droppable 接受。",
+            "itemtype": "property",
+            "name": "options.scope",
+            "type": "{String}",
+            "default": "\"default\"",
+            "example": [
+                "\n\t//初始化带有指定 scope 选项的 draggable：\n\t$( \".selector\" ).draggable({ scope: \"tasks\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 267,
+            "description": "如果设置为 true，当拖拽时容器会自动滚动。",
+            "itemtype": "property",
+            "name": "options.scroll",
+            "type": "{Boolean}",
+            "default": "true",
+            "example": [
+                "\n\t//初始化带有指定 scroll 选项的 draggable：\n\t$( \".selector\" ).draggable({ scroll: false });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 278,
+            "description": "从要滚动的视区边缘起的距离，以像素计。距离是相对于指针的，不是相对于 draggable。\n如果 scroll 选项是 false 则忽略。",
+            "itemtype": "property",
+            "name": "options.scrollSensitivity",
+            "type": "{Number}",
+            "default": "20",
+            "example": [
+                "\n\t//初始化带有指定 scrollSensitivity 选项的 draggable：\n\t$( \".selector\" ).draggable({ scroll: false });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 290,
+            "description": "当鼠标指针获取到在 scrollSensitivity 距离内时，窗体滚动的速度。\n如果 scroll 选项是 false 则忽略。",
+            "itemtype": "property",
+            "name": "options.scrollSpeed",
+            "type": "{Number}",
+            "default": "20",
+            "example": [
+                "\n\t//初始化带有指定 scrollSpeed 选项的 draggable：\n\t$( \".selector\" ).draggable({ scrollSpeed: 100 });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 302,
+            "description": "元素是否对齐到其他元素。<br/>\n支持多个类型：<br/>\nBoolean：当设置为 true 时，元素会对齐到其它可拖拽（draggable ）元素。<br/>\nSelector：一个选择器，指定要对齐到哪个元素。<br/>",
+            "itemtype": "property",
+            "name": "options.snap",
+            "type": "{Boolean | Selector}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 snap 选项的 draggable：\n\t$( \".selector\" ).draggable({ snap: true });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 316,
+            "description": "决定 draggable 将对齐到对齐元素的哪个边缘。如果 snap 选项是 false 则忽略。\n可能的值：\"inner\"、\"outer\"、\"both\"。",
+            "itemtype": "property",
+            "name": "options.snapMode",
+            "type": "{String}",
+            "default": "\"both\"",
+            "example": [
+                "\n\t//初始化带有指定 snapMode 选项的 draggable：\n\t$( \".selector\" ).draggable({ snapMode: \"inner\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 328,
+            "description": "从要发生对齐的对齐元素边缘起的距离，以像素计。\n如果 snap 选项是 false 则忽略。",
+            "itemtype": "property",
+            "name": "options.snapTolerance",
+            "type": "{Number}",
+            "default": "20",
+            "example": [
+                "\n\t//初始化带有指定 snapTolerance 选项的 draggable：\n\t$( \".selector\" ).draggable({ snapTolerance: 30 });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 340,
+            "description": "控制匹配选择器（selector）的元素集合的 z-index，总是在当前拖拽项的前面，在类似窗口管理器这样的事物中非常有用。",
+            "itemtype": "property",
+            "name": "options.stack",
+            "type": "{Selector}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 stack 选项的 draggable：\n\t$( \".selector\" ).draggable({ stack: \".products\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 351,
+            "description": "当被拖拽时，助手（helper）的 Z-index。",
+            "itemtype": "property",
+            "name": "options.zIndex",
+            "type": "{Number}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 zIndex 选项的 draggable：\n\t$( \".selector\" ).draggable({ zIndex: 100 });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 368,
+            "description": "防止从指定的元素上开始拖拽。",
+            "itemtype": "property",
+            "name": "options.cancel",
+            "type": "{Selector}",
+            "default": "\"input, textarea, button, select, option\"",
+            "example": [
+                "\n\t//初始化带有指定 cancel 选项的 draggable：\n\t$( \".selector\" ).draggable({ cancel: \".title\" });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 379,
+            "description": "鼠标按下后直到拖拽开始为止的时间，以毫秒计。该选项可以防止点击在某个元素上时不必要的拖拽。",
+            "itemtype": "property",
+            "name": "options.delay",
+            "type": "{Boolean}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 delay 选项的 draggable：\n\t$( \".selector\" ).draggable({ delay: 300 });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 390,
+            "description": "如果设置为 true，则禁用该 draggable。",
+            "itemtype": "property",
+            "name": "options.disabled",
+            "type": "{Boolean}",
+            "default": "false",
+            "example": [
+                "\n\t//初始化带有指定 disabled 选项的 draggable：\n\t$( \".selector\" ).draggable({ disabled: true });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\draggable.js",
+            "line": 401,
+            "description": "鼠标按下后拖拽开始前必须移动的距离，以像素计。该选项可以防止点击在某个元素上时不必要的拖拽。",
+            "itemtype": "property",
+            "name": "options.distance",
+            "type": "{Number}",
+            "default": "1",
+            "example": [
+                "\n\t//初始化带有指定 distance 选项的 draggable：\n\t$( \".selector\" ).draggable({ distance: 10 });"
+            ],
+            "class": "ui.draggable",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 696,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 697,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 698,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 900,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 901,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 902,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 1246,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 1247,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\effect.js",
+            "line": 1248,
+            "class": "ui.mouse",
+            "module": "draggable",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 46,
+            "description": "默认的鼠标交互 options",
+            "itemtype": "property",
+            "name": "options",
+            "type": "{Object}",
+            "final": 1,
+            "example": [
+                "\n\t//初始化带有指定 cancel 选项的 mouse：\n\t$( \".selector\" ).mouse({ cancel: \".title\" });\n\t\n\t//在初始化后，获取或设置 cancel 选项：\n\t// getter\n\tvar cancel = $( \".selector\" ).mouse( \"option\", \"cancel\" );\n\t// setter\n\t$( \".selector\" ).mouse( \"option\", \"cancel\", \".title\" );\n"
+            ],
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 67,
+            "description": "初始化交互事件处理程序。这必须调用来自扩展的小部件的 _create() 方法。",
+            "itemtype": "method",
+            "name": "_mouseInit",
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 92,
+            "description": "销毁交互事件处理程序。这必须调用来自扩展的小部件的 _destroy() 方法。",
+            "itemtype": "method",
+            "name": "_mouseDestroy",
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 105,
+            "description": "处理交互的开始。确认与主要的鼠标按钮关联的事件，确保 delay 与 distance 在交互启动之前得到满足。\n当交互已经准备开始，为要处理的扩展小部件调用 _mouseStart 方法。",
+            "itemtype": "method",
+            "name": "_mouseDown",
+            "params": [
+                {
+                    "name": "event",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 172,
+            "description": "处理交互的每个移动。为要处理的扩展小部件调用 _mouseDrag 方法。",
+            "itemtype": "method",
+            "name": "_mouseMove",
+            "params": [
+                {
+                    "name": "event",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "*"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 212,
+            "description": "处理交互的结束。为要处理的扩展小部件调用 _mouseStop 方法。",
+            "itemtype": "method",
+            "name": "_mouseUp",
+            "params": [
+                {
+                    "name": "event",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 237,
+            "description": "决定 distance 选项是否满足当前交互。",
+            "itemtype": "method",
+            "name": "_mouseDistanceMet",
+            "params": [
+                {
+                    "name": "event",
+                    "description": ""
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 251,
+            "description": "决定 delay 选项是否满足当前交互。",
+            "itemtype": "method",
+            "name": "_mouseDelayMet",
+            "return": {
+                "description": "",
+                "type": "Boolean|*|mouseDelayMet"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 262,
+            "description": "扩展小部件应实现一个 _mouseStart() 方法，来处理交互的开始。该方法将接收与交互开始相关联的鼠标事件。",
+            "itemtype": "method",
+            "name": "_mouseStart",
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 268,
+            "description": "扩展小部件应实现一个 _mouseDrag() 方法，来处理交互的每个移动。该方法将接收与鼠标移动相关联的鼠标事件。",
+            "itemtype": "method",
+            "name": "_mouseDrag",
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 274,
+            "description": "扩展小部件应实现一个 _mouseStop() 方法，来处理交互的结束。该方法将接收与交互结束相关联的鼠标事件。",
+            "itemtype": "method",
+            "name": "_mouseStop",
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\mouse.js",
+            "line": 280,
+            "description": "决定交互是否应该基于交互的事件目标开始。默认的实现总是返回 true。",
+            "itemtype": "method",
+            "name": "_mouseCapture",
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "ui.mouse",
+            "module": "mouse",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 61,
+            "description": "使用与所有 jQuery UI 小部件相同的抽象化来创建有状态的 jQuery 插件。",
+            "itemtype": "method",
+            "name": "widget",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "要创建的小部件名称，包括命名空间。",
+                    "type": "String"
+                },
+                {
+                    "name": "base",
+                    "description": "要继承的基础小部件。必须是一个可以使用 `new` 关键词实例化的构造函数。默认为 jQuery.Widget。",
+                    "type": "Function"
+                },
+                {
+                    "name": "prototype",
+                    "description": "要作为小部件原型使用的对象。",
+                    "type": "PlainObject"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "class": "ui.widget",
+            "module": "widget",
+            "namespace": "ui"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 283,
+            "description": "小部件的名称。对于 $.widget( \"myNamespace.myWidget\", {} )，widgetName 将是 \"myWidget\"。",
+            "itemtype": "property",
+            "name": "widgetName",
+            "type": "{String}",
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 289,
+            "description": "添加到小部件事件名称的前缀。\n例如，可拖拽小部件（Draggable Widget） 的 widgetEventPrefix 是 \"drag\"，因此当创建一个 draggable 时，事件的名称是 \"dragcreate\"。\n默认情况下，小部件的 widgetEventPrefix 是它的名称。",
+            "itemtype": "property",
+            "name": "widgetEventPrefix",
+            "deprecated": true,
+            "deprecationMessage": "注意：该属性已被废弃，将在以后的版本中非常。事件名称将被改为 widgetName:eventName （例如 \"draggable:create\"）。",
+            "type": "{String}",
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 300,
+            "description": "当构造小部件实例未提供元素时要使用的元素。\n例如，由于进度条的 defaultElement 是 \"&lt;div &gt;\"，\n$.ui.progressbar({ value: 50 }) 在一个新建的 &lt;div&gt; 上实例化进度条小部件实例。",
+            "itemtype": "property",
+            "name": "defaultElement",
+            "type": "{String}",
+            "default": "'<div>'",
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 310,
+            "description": "一个包含小部件当前使用选项的对象。\n在实例化时，用户提供的任何选项将会自动与 $.myNamespace.myWidget.prototype.options 中定义的默认值合并。用户指定的选项会覆盖默认值。",
+            "itemtype": "property",
+            "name": "options",
+            "type": "{Object}",
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 361,
+            "description": "该方法允许小部件在初始化期间为定义选项定义一个自定义的方法。用户提供的选项会覆盖该方法返回的选项，即会覆盖默认的选项。",
+            "itemtype": "method",
+            "name": "_getCreateOptions",
+            "access": "private",
+            "tagname": "",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "example": [
+                "\n\t//让小部件元素的 id 属性作为选项可用。\n\t_getCreateOptions: function() {\n\t\treturn { id: this.element.attr( \"id\" ) };\n\t}\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 374,
+            "description": "所有的小部件触发 create 事件。默认情况下，事件中不提供任何的数据，但是该方法会返回一个对象，作为 create 事件的数据被传递。",
+            "itemtype": "method",
+            "name": "_getCreateEventData",
+            "access": "private",
+            "tagname": "",
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "example": [
+                "\n\t//向 create 事件处理程序传递小部件的选项，作为参数。\n\t_getCreateEventData: function() {\n\t\treturn this.options;\n\t}\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 387,
+            "description": "_create() 方法是小部件的构造函数。没有参数，但是 this.element 和 this.options 已经设置。",
+            "itemtype": "method",
+            "name": "_create",
+            "return": {
+                "description": "",
+                "type": "JQuery (plugin only)"
+            },
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//基于一个选项设置小部件元素的背景颜色。\n\t_create: function() {\n\t\tthis.element.css( \"background-color\", this.options.color );\n\t}\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 400,
+            "description": "小部件初始化的理念与创建不同。任何时候不带参数的调用插件或者只带一个选项哈希的调用插件，初始化小部件。当小部件被创建时会包含这个方法。<br/>\n注释：如果存在不带参数成功调用小部件时要执行的逻辑动作，初始化只能在这时处理。",
+            "itemtype": "method",
+            "name": "_init",
+            "return": {
+                "description": "",
+                "type": "JQuery (plugin only)"
+            },
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//如果设置了 autoOpen 选项，则调用 open() 方法。\n\t_init: function() {\n\t\tif ( this.options.autoOpen ) {\n\t\t\tthis.open();\n\t\t}\n\t}\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 416,
+            "description": "完全移除小部件功能。这会把元素返回到它的预初始化状态。",
+            "itemtype": "method",
+            "name": "destroy",
+            "return": {
+                "description": "",
+                "type": "JQuery (plugin only)"
+            },
+            "example": [
+                "\n\t//当点击小部件的任意锚点时销毁小部件。\n\tthis._on( this.element, {\n\t\t\"click a\": function( event ) {\n\t\t\tevent.preventDefault();\n\t\t\tthis.destroy();\n\t\t}\n\t});\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 452,
+            "description": "公共的 destroy() 方法清除所有的公共数据、事件等等。代表了定制、指定小部件、清理的 _destroy()。",
+            "itemtype": "method",
+            "name": "_destroy",
+            "return": {
+                "description": "",
+                "type": "JQuery (plugin only)"
+            },
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//当小部件被销毁时，从小部件的元素移除一个 class。\n\t_destroy: function() {\n\t\tthis.element.removeClass( \"my-widget\" );\n\t}\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 465,
+            "description": "返回一个包含原始元素或其他相关的生成元素的 jQuery 对象。",
+            "itemtype": "method",
+            "name": "widget",
+            "return": {
+                "description": "[description]",
+                "type": "JQuery"
+            },
+            "example": [
+                "\n\t//当创建小部件时，在小部件的原始元素周围放置一个红色的边框。\n\t_create: function() {\n\t\tthis.widget().css( \"border\", \"2px solid red\" );\n\t} "
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 478,
+            "description": "设置与指定的 key 关联的小部件选项的值。",
+            "itemtype": "method",
+            "name": "option",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "要设置的选项的名称。",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "要为选项设置的值。",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "JQuery (plugin only)"
+            },
+            "example": [
+                "\n\t//设置 width 选项为 500。\n\tthis.option( \"width\", 500 );\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 528,
+            "description": "当调用 option() 方法时调用，无论以什么形式调用 option()。如果您要根据多个选项的改变而改变处理器密集型，重载该方法是很有用的。",
+            "itemtype": "method",
+            "name": "_setOptions",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "为选项设置的值。",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//如果小部件的 height 或 width 选项改变，调用 resize 方法。\n\t_setOptions: function( options ) {\n\t\tvar that = this,\n\t \tresize = false;\n\n\t\t$.each( options, function( key, value ) {\n\t\t\tthat._setOption( key, value );\n\t\t\tif ( key === \"height\" || key === \"width\" ) {\n\t\t\t\tresize = true;\n\t\t\t}\n\t\t});\n\n\t\tif ( resize ) {\n\t\t\tthis.resize();\n\t\t}\n\t}"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 560,
+            "description": "为每个独立的选项调用 _setOptions() 方法。小部件状态随着改变而更新。",
+            "itemtype": "method",
+            "name": "_setOption",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "要设置的选项名称。",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "为选项设置的值。",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n\t//当小部件的 height 或 width 选项改变时，更新小部件的元素。\n\t_setOption: function( key, value ) {\n\t\tif ( key === \"width\" ) {\n\t\t\tthis.element.width( value );\n\t\t}\n\t\tif ( key === \"height\" ) {\n\t\t\tthis.element.height( value );\n\t\t}\n\t\tthis._super( key, value );\n\t}"
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 594,
+            "description": "启用小部件。",
+            "itemtype": "method",
+            "name": "enable",
+            "return": {
+                "description": "",
+                "type": "JQuery (plugin only)"
+            },
+            "example": [
+                "\n\t//当点击小部件的任意锚点时启用小部件。\n\tthis._on( this.element, {\n\t\t\"click a\": function( event ) {\n\t\t\tevent.preventDefault();\n\t\t\tthis.enable();\n\t\t}\n\t});\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 611,
+            "description": "禁用小部件。",
+            "itemtype": "method",
+            "name": "disable",
+            "return": {
+                "description": "",
+                "type": "JQuery (plugin only)"
+            },
+            "example": [
+                "\n\t//当点击小部件的任意锚点时禁用小部件。\n\tthis._on( this.element, {\n\t\t\"click a\": function( event ) {\n\t\t\tevent.preventDefault();\n\t\t\tthis.disable();\n\t\t}\n\t});\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 628,
+            "description": "授权通过事件名称内的选择器被支持，例如 \"click .foo\"。_on() 方法提供了一些直接事件绑定的好处：<br/>\n保持处理程序内适当的 this 上下文。<br/>\n自动处理禁用的部件：如果小部件被禁用或事件发生在带有 ui-state-disabled class 的元素上，则不调用事件处理程序。\n可以被 suppressDisabledCheck 参数重写。<br/>\n事件处理程序会自动添加命名空间，在销毁时会自动清理。",
+            "itemtype": "method",
+            "name": "_on",
+            "params": [
+                {
+                    "name": "suppressDisabledCheck",
+                    "description": "是否要绕过禁用的检查。",
+                    "type": "Boolean",
+                    "optional": true,
+                    "optdefault": "false"
+                },
+                {
+                    "name": "element",
+                    "description": "要绑定事件处理程序的元素。如果未提供元素，this.element 用于未授权的事件，widget 元素 用于授权的事件。",
+                    "type": "JQuery"
+                },
+                {
+                    "name": "handlers",
+                    "description": "一个 map，其中字符串键代表事件类型，可选的选择器用于授权，值代表事件调用的处理函数。",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "JQuery (plugin only)"
+            },
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//放置小部件元素内所有被点击的链接的默认行为。\n\tthis._on( this.element, {\n\t\t\"click a\": function( event ) {\n\t\t\tevent.preventDefault();\n\t\t}\n\t});\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 700,
+            "description": "从指定的元素取消绑定事件处理程序。",
+            "itemtype": "method",
+            "name": "_off",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "要取消绑定事件处理程序的元素。不像 _on() 方法，_off() 方法中元素是必需的。",
+                    "type": "JQuery"
+                },
+                {
+                    "name": "eventName",
+                    "description": "一个或多个空格分隔的事件类型。",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "JQuery (plugin only)"
+            },
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//从小部件的元素上取消绑定所有 click 事件。\n\tthis._off( this.element, \"click\" );\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 722,
+            "description": "在指定延迟后调用提供的函数。保持 this 上下文正确。本质上是 setTimeout()。\n使用 clearTimeout() 返回超时 ID。",
+            "itemtype": "method",
+            "name": "_delay",
+            "params": [
+                {
+                    "name": "handler",
+                    "description": "要调用的函数。也可以是小部件上方法的名称。",
+                    "type": "Function | String"
+                },
+                {
+                    "name": "delay",
+                    "description": "调用函数前等待的毫秒数，默认为 0。",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "Number"
+            },
+            "example": [
+                "\n\t//100 毫秒后在小部件上调用 _foo() 方法。\n\tthis._delay( this._foo, 100 );"
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 742,
+            "description": "建立悬浮在元素上时要应用 ui-state-hover class 的 element。事件处理程序在销毁时自动清理。",
+            "itemtype": "method",
+            "name": "_hoverable",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "要应用 hoverable 行为的元素。",
+                    "type": "JQuery"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "JQuery (plugin only)"
+            },
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//当悬浮在元素上时，向元素内所有的 div 应用 hoverable 样式。\n\tthis._hoverable( this.element.find( \"div\" ) );"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 763,
+            "description": "建立聚焦在元素上时要应用 ui-state-focus class 的 element。",
+            "itemtype": "method",
+            "name": "_focusable",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "要应用 focusable 行为的元素。",
+                    "type": "JQuery"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "[type]"
+            },
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//向小部件内的一组元素应用 focusable 样式：\n\tthis._focusable( this.element.find( \".my-items\" ) );"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        },
+        {
+            "file": "ui-cn\\widget.js",
+            "line": 784,
+            "description": "触发一个事件及其相关的回调。带有该名称的选项与作为回调被调用的类型相等。<br/>\n事件名称是小部件名称和类型的小写字母串。<br/>\n注释：当提供数据时，您必须提供所有三个参数。如果没有传递事件，则传递 null。<br/>\n如果默认行为是阻止的，则返回 false，否则返回 true。当处理程序返回 false 时或调用 event.preventDefault() 时，则阻止默认行为发生。<br/>",
+            "itemtype": "method",
+            "name": "_trigger",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "type 应该匹配回调选项的名称。完整的事件类型会自动生成。",
+                    "type": "String"
+                },
+                {
+                    "name": "event",
+                    "description": "导致该事件发生的原始事件，想听众提供上下文时很有用。",
+                    "type": "Event"
+                },
+                {
+                    "name": "data",
+                    "description": "一个与事件相关的数据哈希。",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "[description]",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "example": [
+                "\n\t//当按下一个键时，触发 search 事件。\n\tthis._on( this.element, {\n\t\tkeydown: function( event ) {\n\t\t\t// Pass the original event so that the custom search event has\n\t\t\t// useful information, such as keyCode\n\t\t\tthis._trigger( \"search\", event, {\n\t\t\t\t// Pass additional information unique to this event\n\t\t\t\tvalue: this.element.val()\n\t\t\t});\n\t\t}\n\t});\n\t"
+            ],
+            "class": "ui.widget",
+            "module": "widget",
+            "submodule": "bridge"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\mouse.js:105"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\mouse.js:172"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\mouse.js:212"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\mouse.js:237"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\mouse.js:251"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\mouse.js:280"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\widget.js:361"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\widget.js:374"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\widget.js:387"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\widget.js:400"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\widget.js:416"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\widget.js:452"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\widget.js:594"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " ui-cn\\widget.js:611"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:696"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:697"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:698"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:900"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:901"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:902"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:1246"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:1247"
+        },
+        {
+            "message": "Missing item type",
+            "line": " ui-cn\\effect.js:1248"
+        }
+    ]
+}

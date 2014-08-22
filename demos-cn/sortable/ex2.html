@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI 排序（Sortable） - 门户组件（Portlets）</title>
+	<link rel="stylesheet" href="../../themes/base/all.css">
+	<script src="../../external/jquery/jquery.js"></script>
+	<script src="../../ui/core.js"></script>
+	<script src="../../ui/widget.js"></script>
+	<script src="../../ui/mouse.js"></script>
+	<script src="../../ui/sortable.js"></script>
+    <script src="../../ui/draggable.js"></script>
+    <script src="../../ui/droppable.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+	<style>
+        clearfix:before,
+        .clearfix:after{
+            display: table;
+            content: " ";
+        }
+        .clearfix:after{
+            clear: both;
+        }
+
+	body {
+		min-width: 520px;
+	}
+	.column {
+		width: 170px;
+		float: left;
+		padding-bottom: 100px;
+	}
+	.portlet {
+		margin: 0 1em 1em 0;
+		padding: 0.3em;
+	}
+	.portlet-header {
+		padding: 0.2em 0.3em;
+		margin-bottom: 0.5em;
+		position: relative;
+	}
+	.portlet-toggle {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		margin-top: -8px;
+	}
+	.portlet-content {
+		padding: 0.4em;
+	}
+	.portlet-placeholder {
+		border: 1px dotted black;
+		margin: 0 1em 1em 0;
+		height: 50px;
+        background:#80ff80;
+	}
+
+    .edit-btn{cursor: pointer;}
+    .box{float: left; width:300px;}
+    .box .box-item{float: left; width:300px;}
+    .box .bd{min-height: 50px;}
+    .box .portlet{ float: left; width: 170px;}
+    .box .portlet-placeholder  {float: left; width: 170px;}
+	</style>
+	<script>
+	$(function() {
+
+        var $column = $( ".column"),
+            $portlet = $('.portlet'),
+            $portletA = $('.portlet-a'),
+            $portletB = $('.portlet-b'),
+            $portletC = $('.portlet-c'),
+            $portletD = $('.portlet-d'),
+            $portletE = $('.portlet-e'),
+            $boxAll = $( ".box .bd-all"),
+            $boxA = $( ".box .bd-a" ),
+            $boxB = $( ".box .bd-b" );
+
+        //备选分类排序 编辑、保存
+        $('#editBtn').click(function(event) {
+           var _self = $(this),
+               _txt = _self.text();
+            _self.toggleClass( 'editing edited' );
+            if ( _self.hasClass('editing')) {
+                console.log('editing');
+                _self.text('Save');
+                listDraggableDestroy();
+                setTimeout(function() {
+                    listSortable();
+                }, 300);
+
+            } else {
+                console.log('edited');
+                _self.text('Edit');
+                listSortableDestroy();
+
+                    listDraggable();
+
+            }
+        });
+        //备选分类 排序
+        var listSortable = function() {
+            $column.sortable({
+                connectWith: ".column",
+                revert: "invalid", // 当未被放置时，条目会还原回它的初始位置
+                handle: ".portlet-header",
+                cancel: ".portlet-toggle",
+                placeholder: "portlet-placeholder ui-corner-all"
+            });
+        };
+        var listSortableDestroy = function() {
+            if($column.data('ui-sortable')) {
+                console.log('sortable destroy');
+                $column.sortable('destroy');
+            }
+        };
+        //分类列表拉取
+        var listDraggable = function() {
+            //放置到 全部类别 区域
+            $portlet.draggable({
+                connectToSortable: ".box .bd-all",
+                opacity: 0.8,
+                cursor: "move",
+                revert: "invalid", // 当未被放置时，条目会还原回它的初始位置
+                helper: "clone",
+//                helper: function( event) {
+//                    console.log('helper', event);
+//                    return $( "<div class='ui-widget-header'>I'm a custom helper</div>" );
+//                },
+                handle: ".portlet-header",
+                cancel: ".ui-icon",
+                start: function(event, ui) {
+
+                },
+                drag: function(event, ui) {
+                    //console.log('drag', event, ui);
+                    ui.helper.width(160).height('auto');
+                },
+                stop: function(event, ui, inst) {
+                    console.log('stop', event, ui, inst);
+                    var _target = event.target;
+                    var _ui = ui.helper;
+
+                    $(inst).find('.portlet-content').html('text');
+
+                }
+            });
+            $boxAll.droppable({
+                accept: ".column .portlet", //接受对象
+                activeClass: "ui-state-default",   // 有放置对象时提示
+                drop: function( event, ui ) {
+                    console.log('drop', ui.draggable);
+                }
+            });
+
+            $portletA.draggable({
+                connectToSortable: ".box .bd-a, .box .bd-all",
+                opacity: 0.8,
+                cursor: "move",
+                revert: "invalid", // 当未被放置时，条目会还原回它的初始位置
+                helper: "clone",
+                handle: ".portlet-header",
+                cancel: ".ui-icon",
+                start: function(event, ui) {
+
+                },
+                drag: function(event, ui) {
+                    //console.log('drag', event, ui);
+                    ui.helper.width(160).height('auto');
+                },
+                stop: function(event, ui, inst) {
+                    console.log('stop', event, ui, inst);
+                }
+            });
+            $boxA.droppable({
+                accept: ".column .portlet-a", //接受对象
+                activeClass: "ui-state-default",   // 有放置对象时提示
+                drop: function( event, ui ) {
+
+                }
+            });
+
+
+
+            $portletB.draggable({
+                connectToSortable: ".box .bd-b, .box .bd-all",
+                opacity: 0.8,
+                cursor: "move",
+                revert: "invalid", // 当未被放置时，条目会还原回它的初始位置
+                helper: "clone",
+                handle: ".portlet-header",
+                cancel: ".ui-icon",
+                start: function(event, ui) {
+
+                },
+                drag: function(event, ui) {
+                    //console.log('drag', event, ui);
+                    ui.helper.width(160).height('auto');
+                },
+                stop: function(event, ui, inst) {
+                    console.log('stop', event, ui, inst);
+                }
+            });
+            $boxB.droppable({
+                accept: ".column .portlet-b", //接受对象
+                activeClass: "ui-state-default",   // 有放置对象时提示
+                drop: function( event, ui ) {
+
+                }
+            });
+
+
+
+        };
+        //分类列表拉取-销毁
+        var listDraggableDestroy = function() {
+            if($portlet.data('ui-draggable')) {
+                console.log('draggable destroy');
+                $portlet.draggable('destroy');
+            }
+            if($boxAll.data('ui-droppable')) {
+                $boxAll.droppable('destroy');
+            }
+            if($boxA.data('ui-droppable')) {
+                $boxA.droppable('destroy');
+            }
+            if($boxB.data('ui-droppable')) {
+                $boxB.droppable('destroy');
+            }
+        };
+        listDraggable();
+
+
+
+//        $( ".box .bd-all" ).sortable({
+//            connectWith: ".box .bd-all",
+//            cursor: "move",
+//            handle: ".portlet-header",
+//            cancel: ".portlet-toggle",
+//            placeholder: "portlet-placeholder ui-corner-all"
+//        }).disableSelection();
+
+        $( ".box .bd-a" ).sortable({
+            connectWith: ".box .bd-a",
+            cursor: "move",
+            handle: ".portlet-header",
+            cancel: ".portlet-toggle",
+            placeholder: "portlet-placeholder ui-corner-all"
+        }).disableSelection();
+
+        $( ".box .bd-b" ).sortable({
+            connectWith: ".box .bd-b",
+            cursor: "move",
+            handle: ".portlet-header",
+            cancel: ".portlet-toggle",
+            placeholder: "portlet-placeholder ui-corner-all"
+        }).disableSelection();
+
+
+
+        $( ".portlet" )
+                .addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+                .find( ".portlet-header" )
+                .addClass( "ui-widget-header ui-corner-all" )
+                .prepend( "<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
+
+        $('body').delegate('.portlet-toggle', 'click', function() {
+            var icon = $( this );
+            icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+            icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
+        });
+
+
+
+
+
+
+
+
+	});
+	</script>
+</head>
+<body>
+
+<h2>备选分类  <span id="editBtn" class="edit-btn edited">Edit</span></h2>
+<div class="column">
+
+	<div class="portlet portlet-a">
+		<div class="portlet-header">A</div>
+		<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	</div>
+
+	<div class="portlet portlet-b">
+		<div class="portlet-header">B</div>
+		<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	</div>
+
+</div>
+
+<div class="column">
+
+	<div class="portlet portlet-c">
+		<div class="portlet-header">C</div>
+		<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	</div>
+
+</div>
+
+<div class="column">
+
+	<div class="portlet portlet-d">
+		<div class="portlet-header">D</div>
+		<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	</div>
+
+	<div class="portlet portlet-e">
+		<div class="portlet-header">E</div>
+		<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	</div>
+
+</div>
+
+
+<div class="box">
+    <h2 style="clear:both;">放置区</h2>
+    <div class="box-item" style="clear: both;">
+        <div class="hd">全部类别：</div>
+        <div class="bd clearfix bd-all"></div>
+    </div>
+    <div class="box-item">
+        <div class="hd">A类别：</div>
+        <div class="bd clearfix bd-a"></div>
+    </div>
+    <div class="box-item">
+        <div class="hd">B类别：</div>
+        <div class="bd clearfix bd-b"></div>
+    </div>
+    <div class="box-item">
+        <div class="hd">C类别：</div>
+        <div class="bd bd-c"></div>
+    </div>
+    <div class="box-item">
+        <div class="hd">D类别：</div>
+        <div class="bd bd-d"></div>
+    </div>
+    <div class="box-item">
+        <div class="hd">E类别：</div>
+        <div class="bd bd-e"></div>
+    </div>
+</div>
+
+<div class="demo-description">
+<p>
+
+</p>
+</div>
+</body>
+</html>
