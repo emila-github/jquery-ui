@@ -201,7 +201,19 @@ grunt.initConfig({
 			}
 		}
 	},
-
+	yuidoc: {
+		compile: {
+		    name: "<%= pkg.name %>",
+		    description: "<%= pkg.description %>",
+		    version: "<%= pkg.version %>",
+		    url: "<%= pkg.homepage %>",
+		    options: {
+		        paths: "ui-cn/",
+		        //themedir: 'path/to/custom/theme/',
+		        outdir: "docs-cn/"
+		    }
+		}
+	},
 	esformatter: {
 		options: {
 			preset: "jquery"
@@ -308,7 +320,7 @@ grunt.initConfig({
 grunt.registerTask( "default", [ "lint", "test" ]);
 grunt.registerTask( "lint", [ "asciilint", "jshint", "jscs", "csslint", "htmllint" ]);
 grunt.registerTask( "test", [ "qunit" ]);
-grunt.registerTask( "sizer", [ "concat:ui", "uglify:main", "compare_size:all" ]);
+grunt.registerTask( "sizer", [ "concat:ui", "uglify:main", "compare_size:all", "yuidoc" ]);
 grunt.registerTask( "sizer_all", [ "concat:ui", "uglify", "compare_size" ]);
 
 };
