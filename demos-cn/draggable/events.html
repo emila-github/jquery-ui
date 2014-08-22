@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI ÍÏ¶¯£¨Draggable£© - ÊÂ¼ş</title>
+	<title>jQuery UI æ‹–åŠ¨ï¼ˆDraggableï¼‰ - äº‹ä»¶</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/core.js"></script>
@@ -39,12 +39,12 @@
 		});
 
 		function updateCounterStatus( $event_counter, new_count ) {
-            // Ê×ÏÈ¸üĞÂÊÓ¾õ×´Ì¬...
+            // é¦–å…ˆæ›´æ–°è§†è§‰çŠ¶æ€...
 			if ( !$event_counter.hasClass( "ui-state-hover" ) ) {
 				$event_counter.addClass( "ui-state-hover" )
 					.siblings().removeClass( "ui-state-hover" );
 			}
-            // ...È»ºó¸üĞÂÊı×Ö
+            // ...ç„¶åæ›´æ–°æ•°å­—
 			$( "span.count", $event_counter ).text( new_count );
 		}
 	});
@@ -54,17 +54,17 @@
 
 <div id="draggable" class="ui-widget ui-widget-content">
 
-	<p>ÇëÍÏ×§ÎÒ£¬´¥·¢Ò»Á¬´®µÄÊÂ¼ş¡£</p>
+	<p>è¯·æ‹–æ‹½æˆ‘ï¼Œè§¦å‘ä¸€è¿ä¸²çš„äº‹ä»¶ã€‚</p>
 
 	<ul class="ui-helper-reset">
-		<li id="event-start" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-play"></span>"start" ±»µ÷ÓÃ <span class="count">0</span>x</li>
-		<li id="event-drag" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-arrow-4"></span>"drag" ±»µ÷ÓÃ <span class="count">0</span>x</li>
-		<li id="event-stop" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-stop"></span>"stop" ±»µ÷ÓÃ <span class="count">0</span>x</li>
+		<li id="event-start" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-play"></span>"start" è¢«è°ƒç”¨ <span class="count">0</span>x</li>
+		<li id="event-drag" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-arrow-4"></span>"drag" è¢«è°ƒç”¨ <span class="count">0</span>x</li>
+		<li id="event-stop" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-stop"></span>"stop" è¢«è°ƒç”¨ <span class="count">0</span>x</li>
 	</ul>
 </div>
 
 <div class="demo-description">
-<p>draggable ÉÏµÄ start¡¢drag ºÍ stop ÊÂ¼ş¡£ÍÏ×§¿ªÊ¼Ê±´¥·¢ start ÊÂ¼ş£¬ÍÏ×§ÆÚ¼ä´¥·¢ drag ÊÂ¼ş£¬ÍÏ×§Í£Ö¹Ê±´¥·¢ stop ÊÂ¼ş¡£</p>
+<p>draggable ä¸Šçš„ startã€drag å’Œ stop äº‹ä»¶ã€‚æ‹–æ‹½å¼€å§‹æ—¶è§¦å‘ start äº‹ä»¶ï¼Œæ‹–æ‹½æœŸé—´è§¦å‘ drag äº‹ä»¶ï¼Œæ‹–æ‹½åœæ­¢æ—¶è§¦å‘ stop äº‹ä»¶ã€‚</p>
 </div>
 </body>
 </html>

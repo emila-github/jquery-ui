@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI ����Sortable�� - �������б�</title>
+	<title>jQuery UI 排序（Sortable） - 处理空列表</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/core.js"></script>
@@ -32,16 +32,16 @@
 <body>
 
 <ul id="sortable1" class='droptrue'>
-	<li class="ui-state-default">�ɱ����õ�..</li>
-	<li class="ui-state-default">..һ�����б���</li>
+	<li class="ui-state-default">可被放置到..</li>
+	<li class="ui-state-default">..一个空列表中</li>
 	<li class="ui-state-default">Item 3</li>
 	<li class="ui-state-default">Item 4</li>
 	<li class="ui-state-default">Item 5</li>
 </ul>
 
 <ul id="sortable2" class='dropfalse'>
-	<li class="ui-state-highlight">���ɱ����õ�..</li>
-	<li class="ui-state-highlight">..һ�����б���</li>
+	<li class="ui-state-highlight">不可被放置到..</li>
+	<li class="ui-state-highlight">..一个空列表中</li>
 	<li class="ui-state-highlight">Item 3</li>
 	<li class="ui-state-highlight">Item 4</li>
 	<li class="ui-state-highlight">Item 5</li>
@@ -54,7 +54,7 @@
 
 <div class="demo-description">
 <p>
-    ͨ���� ѡ������Ϊ false������ֹһ���б��е�������Ŀ�����õ�һ�������Ŀ��б��С�Ĭ������£�sortable ��Ŀ�ɱ����õ��յ��б��С�
+    通过把 选项设置为 false，来阻止一个列表中的所有条目被放置到一个单独的空列表中。默认情况下，sortable 条目可被放置到空的列表中。
 </p>
 </div>
 </body>

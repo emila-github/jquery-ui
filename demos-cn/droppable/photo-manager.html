@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI ·ÅÖÃ£¨Droppable£© - ¼òµ¥µÄÕÕÆ¬¹ÜÀíÆ÷</title>
+	<title>jQuery UI æ”¾ç½®ï¼ˆDroppableï¼‰ - ç®€å•çš„ç…§ç‰‡ç®¡ç†å™¨</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/position.js"></script>
@@ -31,20 +31,20 @@
 	</style>
 	<script>
 	$(function() {
-        // ÕâÊÇÏà²áºÍ»ØÊÕÕ¾
+        // è¿™æ˜¯ç›¸å†Œå’Œå›æ”¶ç«™
 		var $gallery = $( "#gallery" ),
 			$trash = $( "#trash" );
 
-        // ÈÃÏà²áµÄÌõÄ¿¿ÉÍÏ×§
+        // è®©ç›¸å†Œçš„æ¡ç›®å¯æ‹–æ‹½
 		$( "li", $gallery ).draggable({
-			cancel: "a.ui-icon", // µã»÷Ò»¸öÍ¼±ê²»»áÆô¶¯ÍÏ×§
-			revert: "invalid", // µ±Î´±»·ÅÖÃÊ±£¬ÌõÄ¿»á»¹Ô­»ØËüµÄ³õÊ¼Î»ÖÃ
-			containment: "document",   //Ô¼ÊøÔÚdocumentÖĞÔË¶¯
+			cancel: "a.ui-icon", // ç‚¹å‡»ä¸€ä¸ªå›¾æ ‡ä¸ä¼šå¯åŠ¨æ‹–æ‹½
+			revert: "invalid", // å½“æœªè¢«æ”¾ç½®æ—¶ï¼Œæ¡ç›®ä¼šè¿˜åŸå›å®ƒçš„åˆå§‹ä½ç½®
+			containment: "document",   //çº¦æŸåœ¨documentä¸­è¿åŠ¨
 			helper: "clone",
 			cursor: "move"
 		});
 
-        // ÈÃ»ØÊÕÕ¾¿É·ÅÖÃ£¬½ÓÊÜÏà²áµÄÌõÄ¿
+        // è®©å›æ”¶ç«™å¯æ”¾ç½®ï¼Œæ¥å—ç›¸å†Œçš„æ¡ç›®
 		$trash.droppable({
 			accept: "#gallery > li",
 			activeClass: "ui-state-highlight",
@@ -53,7 +53,7 @@
 			}
 		});
 
-        // ÈÃÏà²á¿É·ÅÖÃ£¬½ÓÊÜ»ØÊÕÕ¾µÄÌõÄ¿
+        // è®©ç›¸å†Œå¯æ”¾ç½®ï¼Œæ¥å—å›æ”¶ç«™çš„æ¡ç›®
 		$gallery.droppable({
 			accept: "#trash li",
 			activeClass: "custom-state-active",
@@ -62,15 +62,15 @@
 			}
 		});
 
-        // Í¼ÏñÉ¾³ı¹¦ÄÜ
-		var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='»¹Ô­Í¼Ïñ' class='ui-icon ui-icon-refresh'>»¹Ô­Í¼Ïñ</a>";  //»¹Ô­Ğ¡Í¼±ê
+        // å›¾åƒåˆ é™¤åŠŸèƒ½
+		var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='è¿˜åŸå›¾åƒ' class='ui-icon ui-icon-refresh'>è¿˜åŸå›¾åƒ</a>";  //è¿˜åŸå°å›¾æ ‡
 		function deleteImage( $item ) {
 			$item.fadeOut(function() {
 				var $list = $( "ul", $trash ).length ?
 					$( "ul", $trash ) :
 					$( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
 
-				$item.find( "a.ui-icon-trash" ).remove();  //ÒÆ³ı »ØÊÕÕ¾Ğ¡Í¼±ê
+				$item.find( "a.ui-icon-trash" ).remove();  //ç§»é™¤ å›æ”¶ç«™å°å›¾æ ‡
 				$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
 					$item
 						.animate({ width: "48px" })
@@ -80,8 +80,8 @@
 			});
 		}
 
-        // Í¼Ïñ»¹Ô­¹¦ÄÜ
-		var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='É¾³ıÍ¼Ïñ' class='ui-icon ui-icon-trash'>É¾³ıÍ¼Ïñ</a>";
+        // å›¾åƒè¿˜åŸåŠŸèƒ½
+		var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='åˆ é™¤å›¾åƒ' class='ui-icon ui-icon-trash'>åˆ é™¤å›¾åƒ</a>";
 		function recycleImage( $item ) {
 			$item.fadeOut(function() {
 				$item
@@ -98,7 +98,7 @@
 			});
 		}
 
-        // Í¼ÏñÔ¤ÀÀ¹¦ÄÜ£¬ÑİÊ¾ ui.dialog ×÷ÎªÄ£Ì¬´°¿ÚÊ¹ÓÃ
+        // å›¾åƒé¢„è§ˆåŠŸèƒ½ï¼Œæ¼”ç¤º ui.dialog ä½œä¸ºæ¨¡æ€çª—å£ä½¿ç”¨
 		function viewLargerImage( $link ) {
 			var src = $link.attr( "href" ),
 				title = $link.siblings( "img" ).attr( "alt" ),
@@ -119,7 +119,7 @@
 			}
 		}
 
-        // Í¨¹ıÊÂ¼ş´úÀí½â¾öÍ¼±êĞĞÎª
+        // é€šè¿‡äº‹ä»¶ä»£ç†è§£å†³å›¾æ ‡è¡Œä¸º
 		$( "ul.gallery > li" ).click(function( event ) {
 			var $item = $( this ),
 				$target = $( event.target );
@@ -175,9 +175,9 @@
 </div>
 
 <div class="demo-description">
-    <p>Äú¿ÉÒÔÍ¨¹ıÍÏ×§ÕÕÆ¬µ½»ØÊÕÕ¾»òÕßµã»÷»ØÊÕÕ¾Í¼±êÀ´É¾³ıÕÕÆ¬¡£</p>
-    <p>Äú¿ÉÒÔÍ¨¹ıÍÏ×§ÕÕÆ¬µ½Ïà²á»òÕßµã»÷»ØÊÕÀûÓÃÍ¼±êÀ´»¹Ô­ÕÕÆ¬¡£</p>
-    <p>Äú¿ÉÒÔÍ¨¹ıµã»÷Ëõ·ÅÍ¼±êÀ´²é¿´´óÍ¼¡£jQuery UI ¶Ô»°¿ò£¨dialog£©²¿¼şÓÃÓÚÄ£Ì¬´°¿Ú¡£</p>
+    <p>æ‚¨å¯ä»¥é€šè¿‡æ‹–æ‹½ç…§ç‰‡åˆ°å›æ”¶ç«™æˆ–è€…ç‚¹å‡»å›æ”¶ç«™å›¾æ ‡æ¥åˆ é™¤ç…§ç‰‡ã€‚</p>
+    <p>æ‚¨å¯ä»¥é€šè¿‡æ‹–æ‹½ç…§ç‰‡åˆ°ç›¸å†Œæˆ–è€…ç‚¹å‡»å›æ”¶åˆ©ç”¨å›¾æ ‡æ¥è¿˜åŸç…§ç‰‡ã€‚</p>
+    <p>æ‚¨å¯ä»¥é€šè¿‡ç‚¹å‡»ç¼©æ”¾å›¾æ ‡æ¥æŸ¥çœ‹å¤§å›¾ã€‚jQuery UI å¯¹è¯æ¡†ï¼ˆdialogï¼‰éƒ¨ä»¶ç”¨äºæ¨¡æ€çª—å£ã€‚</p>
 </div>
 </body>
 </html>
