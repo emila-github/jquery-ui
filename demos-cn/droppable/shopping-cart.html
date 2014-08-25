@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI ·ÅÖÃ£¨Droppable£© - ¹ºÎï³µÑİÊ¾</title>
+	<title>jQuery UI æ”¾ç½®ï¼ˆDroppableï¼‰ - è´­ç‰©è½¦æ¼”ç¤º</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/core.js"></script>
@@ -17,7 +17,7 @@
 	h1 { padding: .2em; margin: 0; }
 	#products { float:left; width: 500px; margin-right: 2em; }
 	#cart { width: 200px; float: left; margin-top: 1em; }
-    /* ¶¨ÒåÁĞ±íÑùÊ½£¬ÒÔ±ã×î´ó»¯ droppable */
+    /* å®šä¹‰åˆ—è¡¨æ ·å¼ï¼Œä»¥ä¾¿æœ€å¤§åŒ– droppable */
 	#cart ol { margin: 0; padding: 1em 0 1em 3em; }
 	</style>
 	<script>
@@ -38,8 +38,8 @@
 		}).sortable({
 			items: "li:not(.placeholder)",
 			sort: function() {
-                // »ñÈ¡ÓÉ droppable Óë sortable ½»»¥¶ø¼ÓÈëµÄÌõÄ¿
-                // Ê¹ÓÃ connectWithSortable ¿ÉÒÔ½â¾öÕâ¸öÎÊÌâ£¬µ«²»ÔÊĞíÄú×Ô¶¨Òå active/hoverClass Ñ¡Ïî
+                // è·å–ç”± droppable ä¸ sortable äº¤äº’è€ŒåŠ å…¥çš„æ¡ç›®
+                // ä½¿ç”¨ connectWithSortable å¯ä»¥è§£å†³è¿™ä¸ªé—®é¢˜ï¼Œä½†ä¸å…è®¸æ‚¨è‡ªå®šä¹‰ active/hoverClass é€‰é¡¹
 				$( this ).removeClass( "ui-state-default" );
 			}
 		});
@@ -49,7 +49,7 @@
 <body>
 
 <div id="products">
-	<h1 class="ui-widget-header">²úÆ·</h1>
+	<h1 class="ui-widget-header">äº§å“</h1>
 	<div id="catalog">
 		<h2><a href="#">T-Shirts</a></h2>
 		<div>
@@ -79,16 +79,16 @@
 </div>
 
 <div id="cart">
-	<h1 class="ui-widget-header">¹ºÎï³µ</h1>
+	<h1 class="ui-widget-header">è´­ç‰©è½¦</h1>
 	<div class="ui-widget-content">
 		<ol>
-			<li class="placeholder">Ìí¼Ó²úÆ·µ½ÕâÀï</li>
+			<li class="placeholder">æ·»åŠ äº§å“åˆ°è¿™é‡Œ</li>
 		</ol>
 	</div>
 </div>
 
 <div class="demo-description">
-<p>ÑİÊ¾ÈçºÎÊ¹ÓÃÕÛµşÃæ°åÀ´Õ¹Ê¾²úÆ·µÄÄ¿Â¼½á¹¹£¬Ê¹ÓÃÍÏ×§ºÍ·ÅÖÃÀ´Ìí¼Ó²úÆ·µ½¹ºÎï³µ£¬¹ºÎï³µÖĞµÄ²úÆ·ÊÇ¿ÉÅÅĞòµÄ¡£</p>
+<p>æ¼”ç¤ºå¦‚ä½•ä½¿ç”¨æŠ˜å é¢æ¿æ¥å±•ç¤ºäº§å“çš„ç›®å½•ç»“æ„ï¼Œä½¿ç”¨æ‹–æ‹½å’Œæ”¾ç½®æ¥æ·»åŠ äº§å“åˆ°è´­ç‰©è½¦ï¼Œè´­ç‰©è½¦ä¸­çš„äº§å“æ˜¯å¯æ’åºçš„ã€‚</p>
 </div>
 </body>
 </html>

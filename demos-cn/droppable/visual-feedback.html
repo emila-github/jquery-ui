@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI ·ÅÖÃ£¨Droppable£© - ÊÓ¾õ·´À¡</title>
+	<title>jQuery UI æ”¾ç½®ï¼ˆDroppableï¼‰ - è§†è§‰åé¦ˆ</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/core.js"></script>
@@ -20,7 +20,7 @@
 	$(function() {
 		$( "#draggable" ).draggable();
 		$( "#droppable" ).droppable({
-			hoverClass: "ui-state-hover",  // ÓĞ·ÅÖÃ¶ÔÏó¾­¹ıÊ±ÌáÊ¾
+			hoverClass: "ui-state-hover",  // æœ‰æ”¾ç½®å¯¹è±¡ç»è¿‡æ—¶æç¤º
 			drop: function( event, ui ) {
 				$( this )
 					.addClass( "ui-state-highlight" )
@@ -31,8 +31,8 @@
 
 		$( "#draggable2" ).draggable();
 		$( "#droppable2" ).droppable({
-			accept: "#draggable2", //½ÓÊÜ¶ÔÏó
-			activeClass: "ui-state-default",   // ÓĞ·ÅÖÃ¶ÔÏóÊ±ÌáÊ¾
+			accept: "#draggable2", //æ¥å—å¯¹è±¡
+			activeClass: "ui-state-default",   // æœ‰æ”¾ç½®å¯¹è±¡æ—¶æç¤º
 			drop: function( event, ui ) {
 				$( this )
 					.addClass( "ui-state-highlight" )
@@ -45,28 +45,28 @@
 </head>
 <body>
 
-<h3>µ±ĞüÍ£ÔÚ droppable ÉÏÊ±µÄ·´À¡£º</h3>
+<h3>å½“æ‚¬åœåœ¨ droppable ä¸Šæ—¶çš„åé¦ˆï¼š</h3>
 
 <div id="draggable" class="ui-widget-content">
-	<p>ÇëÍÏ×§ÎÒµ½Ä¿±ê</p>
+	<p>è¯·æ‹–æ‹½æˆ‘åˆ°ç›®æ ‡</p>
 </div>
 
 <div id="droppable" class="ui-widget-header">
-	<p>Çë·ÅÖÃÔÚÕâÀï</p>
+	<p>è¯·æ”¾ç½®åœ¨è¿™é‡Œ</p>
 </div>
 
-<h3>µ±¼¤»î draggable Ê±µÄ·´À¡£º</h3>
+<h3>å½“æ¿€æ´» draggable æ—¶çš„åé¦ˆï¼š</h3>
 
 <div id="draggable2" class="ui-widget-content">
-	<p>ÇëÍÏ×§ÎÒµ½Ä¿±ê</p>
+	<p>è¯·æ‹–æ‹½æˆ‘åˆ°ç›®æ ‡</p>
 </div>
 
 <div id="droppable2" class="ui-widget-header">
-	<p>Çë·ÅÖÃÔÚÕâÀï</p>
+	<p>è¯·æ”¾ç½®åœ¨è¿™é‡Œ</p>
 </div>
 
 <div class="demo-description">
-<p>µ±ĞüÍ£ÔÚ droppable ÉÏÊ±£¬»òÕßµ± droppable ±»¼¤»î£¨¼´Ò»¸ö¿É½ÓÊÜµÄ draggable ±»·ÅÖÃÔÚ droppable ÉÏ£©Ê±£¬¸Ä±ä droppable µÄÍâ¹Û¡£Ê¹ÓÃ hoverClass »ò activeClass Ñ¡ÏîÀ´·Ö±ğÖ¸¶¨ class¡£</p>
+<p>å½“æ‚¬åœåœ¨ droppable ä¸Šæ—¶ï¼Œæˆ–è€…å½“ droppable è¢«æ¿€æ´»ï¼ˆå³ä¸€ä¸ªå¯æ¥å—çš„ draggable è¢«æ”¾ç½®åœ¨ droppable ä¸Šï¼‰æ—¶ï¼Œæ”¹å˜ droppable çš„å¤–è§‚ã€‚ä½¿ç”¨ hoverClass æˆ– activeClass é€‰é¡¹æ¥åˆ†åˆ«æŒ‡å®š classã€‚</p>
 </div>
 </body>
 </html>

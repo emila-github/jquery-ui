@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI �϶���Draggable�� - ���뵽Ԫ�ػ�����</title>
+	<title>jQuery UI 拖动（Draggable） - 对齐到元素或网格</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/core.js"></script>
@@ -28,34 +28,34 @@
 <body>
 
 <div id="snaptarget" class="ui-widget-header">
-	<p>���Ƕ���Ŀ��</p>
+	<p>我是对齐目标</p>
 </div>
 
 <br style="clear:both" />
 
 <div id="draggable" class="draggable ui-widget-content">
-	<p>Ĭ�ϣ�snap: true�������뵽���������� draggable Ԫ��</p>
+	<p>默认（snap: true），对齐到所有其他的 draggable 元素</p>
 </div>
 
 <div id="draggable2" class="draggable ui-widget-content">
-	<p>��ֻ���뵽�����</p>
+	<p>我只对齐到大盒子</p>
 </div>
 
 <div id="draggable3" class="draggable ui-widget-content">
-	<p>��ֻ���뵽����ӵ����Ե</p>
+	<p>我只对齐到大盒子的外边缘</p>
 </div>
 
 <div id="draggable4" class="draggable ui-widget-content">
-	<p>�Ҷ��뵽һ�� 20 x 20 ����</p>
+	<p>我对齐到一个 20 x 20 网格</p>
 </div>
 
 <div id="draggable5" class="draggable ui-widget-content">
-	<p>�Ҷ��뵽һ�� 80 x 80 ����</p>
+	<p>我对齐到一个 80 x 80 网格</p>
 </div>
 
 <div class="demo-description">
-<p>���� draggable �� DOM Ԫ�ص��ڲ����ⲿ�߽硣ʹ�� snap��snapMode��inner, outer, both���� snapTolerance�������ö���ʱ��draggable ��Ԫ��֮��ľ��룬������Ϊ��λ��ѡ� </p>
-<p>���߶��� draggable ������ͨ�� grid ѡ����������Ԫ�ĳߴ磨������Ϊ��λ�ĸ߶Ȼ���ȣ���</p>
+<p>对齐 draggable 到 DOM 元素的内部或外部边界。使用 snap、snapMode（inner, outer, both）和 snapTolerance（当调用对齐时，draggable 与元素之间的距离，以像素为单位）选项。 </p>
+<p>或者对齐 draggable 到网格。通过 grid 选项设置网格单元的尺寸（以像素为单位的高度或宽度）。</p>
 </div>
 </body>
 </html>

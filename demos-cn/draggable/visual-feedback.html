@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI �϶���Draggable�� - �Ӿ�����</title>
+	<title>jQuery UI 拖动（Draggable） - 视觉反馈</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/core.js"></script>
@@ -33,38 +33,38 @@
 </head>
 <body>
 
-<h3 class="docs">����:</h3>
+<h3 class="docs">助手:</h3>
 
 <div id="draggable" class="ui-widget-content">
-	<p>ԭʼ��(Original)</p>
+	<p>原始的(Original)</p>
 </div>
 
 <div id="draggable2" class="ui-widget-content">
-	<p>��͸���Ŀ�¡</p>
+	<p>半透明的克隆</p>
 </div>
 
 <div id="draggable3" class="ui-widget-content">
-	<p>�Զ������֣��� cursorAt ��ϣ�</p>
+	<p>自定义助手（与 cursorAt 结合）</p>
 </div>
 
 <h3 class="docs">Stacked:</h3>
 <div id="set">
 	<div class="ui-widget-content">
-		<p>������ draggables..</p>
+		<p>我们是 draggables..</p>
 	</div>
 
 	<div class="ui-widget-content">
-		<p>..���� z-index ���Զ����Ƶ�..</p>
+		<p>..它的 z-index 是自动控制的..</p>
 	</div>
 
 	<div class="ui-widget-content">
-		<p>..���� stack ѡ�</p>
+		<p>..带有 stack 选项。</p>
 	</div>
 </div>
 
 <div class="demo-description">
-<p>���û��ṩ���������������ַ�ʽ��ק����һ����helper ѡ�����ֵ 'original'���ù���ƶ� draggable ���󣩣�'clone'���ù���ƶ� draggable �ĸ�����������һ������ DOM Ԫ�صĺ�������Ԫ������ק�ڼ���ʾ�ڹ�긽������ͨ�� opacity ѡ��������ֵ�͸���ȡ�</p>
-<p>Ϊ��������һ�� draggable ���ڱ���ק�������˶��е� draggable ������ǰ�����������ק��ʹ�� zIndex ѡ�����������ֵĸ߶� z-index������ʹ�� stack ѡ����ȷ����ֹͣ��קʱ�����һ������ק����Ŀ���ǳ�����ͬ��������Ŀ�����档</p>
+<p>给用户提供反馈，就像以助手方式拖拽对象一样。helper 选项接受值 'original'（用光标移动 draggable 对象），'clone'（用光标移动 draggable 的副本），或者一个返回 DOM 元素的函数（该元素在拖拽期间显示在光标附近）。通过 opacity 选项控制助手的透明度。</p>
+<p>为了区别哪一个 draggable 正在被拖拽，让在运动中的 draggable 保持最前。如果正在拖拽，使用 zIndex 选项来设置助手的高度 z-index，或者使用 stack 选项来确保当停止拖拽时，最后一个被拖拽的项目总是出现在同组其他项目的上面。</p>
 </div>
 </body>
 </html>
