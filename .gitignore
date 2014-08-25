@@ -1,0 +1,10 @@
+#忽略 sea 模块目录
+#sea-modules/
+
+#忽略 node 模块目录
+node_modules/
+
+#忽略 dist 目录
+dist/
+
+.idea/
