@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI 自动完成（Autocomplete） - 多个值，本地</title>
+	<link rel="stylesheet" href="../../themes/base/all.css">
+	<script src="../../external/jquery/jquery.js"></script>
+	<script src="../../ui/core.js"></script>
+	<script src="../../ui/widget.js"></script>
+	<script src="../../ui/position.js"></script>
+	<script src="../../ui/menu.js"></script>
+	<script src="../../ui/autocomplete.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+	<style>
+	.ui-autocomplete-loading {
+		background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
+	}
+	</style>
+	<script>
+	$(function() {
+        //本地数据源
+        var _datas = [{"id":"Botaurus stellaris","label":"Great Bittern","value":"Great Bittern"},{"id":"Tachybaptus ruficollis","label":"Little Grebe","value":"Little Grebe"},{"id":"Podiceps nigricollis","label":"Black-necked Grebe","value":"Black-necked Grebe"},{"id":"Ixobrychus minutus","label":"Little Bittern","value":"Little Bittern"},{"id":"Nycticorax nycticorax","label":"Black-crowned Night Heron","value":"Black-crowned Night Heron"},{"id":"Ardea purpurea","label":"Purple Heron","value":"Purple Heron"},{"id":"Ciconia ciconia","label":"White Stork","value":"White Stork"},{"id":"Platalea leucorodia","label":"Spoonbill","value":"Spoonbill"},{"id":"Netta rufina","label":"Red-crested Pochard","value":"Red-crested Pochard"},{"id":"Somateria mollissima","label":"Common Eider","value":"Common Eider"},{"id":"Milvus milvus","label":"Red Kite","value":"Red Kite"},{"id":"Circus cyaneus","label":"Hen Harrier","value":"Hen Harrier"}];
+
+		function split( val ) {
+			return val.split( /,\s*/ );
+		}
+		function extractLast( term ) {
+			return split( term ).pop();
+		}
+
+		$( "#birds" )
+			// don't navigate away from the field on tab when selecting an item
+            // 当选择一个条目时不离开文本域
+			.bind( "keydown", function( event ) {
+				if ( event.keyCode === $.ui.keyCode.TAB &&
+						$( this ).autocomplete( "instance" ).menu.active ) {
+					event.preventDefault();
+				}
+			})
+			.autocomplete({
+                minLength: 0,
+                source: function(request,response){
+                    response($.ui.autocomplete.filter(_datas, extractLast(request.term)));
+                },
+				search: function() {
+					// custom minLength
+                    // 自定义最小长度
+					var term = extractLast( this.value );
+//					if ( term.length < 2 ) {
+//						return false;
+//					}
+				},
+				focus: function() {
+					// prevent value inserted on focus
+                    // 防止在获得焦点时插入值
+					return false;
+				},
+				select: function( event, ui ) {
+                    console.log('select',this, this.value,  event, ui );
+					var terms = split( this.value );
+					// remove the current input
+                    // 移除当前输入
+					terms.pop();
+                    if($.inArray(ui.item.value, terms) == -1) {// 未添加过的添加
+                        // add the selected item
+                        // 添加被选项
+                        terms.push( ui.item.value );
+                        // add placeholder to get the comma-and-space at the end
+                        // 添加占位符，在结尾添加逗号+空格
+                        terms.push( "" );
+                        this.value = terms.join( ", " );
+                    }
+
+                    console.log(this.value );
+					return false;
+				},
+                change: function( event, ui ) {
+                   console.log('change', event, ui);
+                }
+			})
+            .click(function(){   //点击自动调用search
+                var ele = $(this);
+                ele.autocomplete( "search" );
+                ele.focus();
+            });
+	});
+	</script>
+</head>
+<body>
+
+<div class="ui-widget">
+	<label for="birds">鸟: </label>
+	<input id="birds" size="50">
+</div>
+
+<div class="demo-description">
+<p>用法：键入至少两个字符来获取鸟的名称。选择一个值，然后继续键入字符来添加其他的值。</p>
+<p>本实例演示如何使用 source 选项和一些事件来实现在一个单一的文本域输入多个自动完成的值。</p>
+</div>
+</body>
+</html>
