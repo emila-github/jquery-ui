@@ -132,6 +132,95 @@ $.position = {
 	}
 };
 
+/**
+ * $.fn.position 相对另一个元素定位一个元素。<br/>
+ * 
+ * @class position
+ * @module $.fn
+ * @constructor
+ * @namespace $.fn
+ */
+
+/**
+ * 相对另一个元素定位一个元素。
+ * jQuery UI .position() 方法允许您相对窗体（window）、文档、
+ * 另一个元素或指针（cursor）/鼠标（mouse）来定位一个元素，无需考虑相对父元素的偏移（offset）。
+ * 
+ * 注释：jQuery UI 不支持定位隐藏元素。
+ * 这是一个独立的 jQuery 插件，且对其他 jQuery UI 组件没有依赖关系。
+ *
+ * 该插件扩展自 jQuery 内置的 .position() 方法。
+ * 如果 jQuery UI 未加载，调用 .position() 方法不会直接失败，因为该方法在 jQuery 中存在。
+ * 但是不会发生预期的行为。
+ *
+ *	options:
+ *	
+ *	my（默认值："center"）
+ *	类型：String
+ *	描述：定义被定位元素上对准目标元素的位置："horizontal vertical" 对齐方式。
+ *	一个单一的值，比如 "right" 将规范为 "right center"，"top" 
+ *	将规范为 "center top"（下面的 CSS 公约）。
+ *	可接受的水平值："left"、"center"、"right"。
+ *	可接受的垂直值："top"、"center"、"bottom"。
+ *	例如，"left top" 或 "center center"。每个纬度也可以包含偏移，以像素计或以百分比计，
+ *	例如 "right+10 top-25%"。百分比偏移是相对于被定位的元素。
+ *
+ * 	at（默认值："center"）
+ * 	类型：String
+ * 	描述：定义目标元素上对准被定位元素的位置： "horizontal vertical" 对齐方式。
+ * 	如需了解更多细节请查看 my 选项上的可能值。百分比偏移是相对于目标元素。
+ * 	
+ * 	of（默认值：null）
+ * 	类型：Selector 或 Element 或 jQuery 或 Event
+ * 	描述：要定位的元素。如果您提供一个选择器（Selector）或 jQuery 对象，将使用第一个匹配元素。
+ * 	如果您提供一个事件（Event）对象，将使用 pageX 和 pageY 属性，
+ * 	例如 "#top-menu"。
+ * 	
+ * 	collision（默认值："flip"）
+ * 	类型：String
+ * 	描述：当被定位元素在某些方向上溢出窗口，则移动它到另一个位置。
+ * 	与 my 和 at 选项相似，该选项会接受一个单一的值或一对 horizontal/vertical 值。
+ * 	例如："flip"、"fit"、"fit flip"、"fit none"。
+ * 	"flip"：翻转元素到目标的相对一边，再次运行 collision 检测一遍查看元素是否适合。
+ * 	无论哪一边允许更多的元素可见，则使用那一边。
+ * 	"fit"：把元素从窗口的边缘移开。
+ * 	"flipfit"：首先应用 flip 逻辑，把元素放置在允许更多元素可见的那一边。
+ * 	然后应用 fit 逻辑，确保尽可能多的元素可见。
+ * 	"none"：不应用任何 collision 检测。
+ * 	
+ * 	using（默认值：null）
+ * 	类型：Function()
+ * 	描述：当指定了该选项，实际属性设置则委托给该回调。
+ * 	接受两个参数：第一个是位置 top 和 left 值的哈希，可被转发到 .css() 或 .animate()；
+ * 	第二个提供了关于两个元素的位置和尺寸的反馈，同时也计算它们的相对位置。
+ * 	target 和 element 都有下列属性：element、left、top、width、height。
+ * 	另外，还有 horizontal、vertical 和 important，提供了十二个可能的方向，
+ * 	如 { horizontal: "center", vertical: "left", important: "horizontal" }。
+ * 	
+ * 	within（默认值：window）
+ * 	类型：Selector 或 Element 或 jQuery
+ * 	描述：元素定位为 within，会影响 collision 检测。
+ * 	如果您提供了一个选择器（Selector）或 jQuery 对象，则使用第一个匹配的元素。
+ * 
+ * @method position
+ * @param  {Object} options [description]
+ * @return {[type]}         [description]
+ *
+ * @example
+ *	$( "#position3" ).position({
+ *		my: "right center",
+ *		at: "right bottom",
+ *		of: "#targetElement"
+ *	});
+ 
+ *	$( document ).mousemove(function( event ) {
+ *		$( "#position4" ).position({
+ *			my: "left+3 bottom-3",
+ *			of: event,
+ *			collision: "fit"
+ *		});
+ *	});
+ */
 $.fn.position = function( options ) {
 	if ( !options || !options.of ) {
 		return _position.apply( this, arguments );
