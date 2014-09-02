@@ -156,7 +156,7 @@ test( "axis, default, switching after initialization", function() {
 });
 
 test( "{ cancel: 'input,textarea,button,select,option' }, default", function() {
-	expect( 2 );
+	expect( 4 );
 
 	$( "<div id='draggable-option-cancel-default'><input type='text'></div>" ).appendTo( "#qunit-fixture" );
 
@@ -171,7 +171,7 @@ test( "{ cancel: 'input,textarea,button,select,option' }, default", function() {
 });
 
 test( "{ cancel: 'span' }", function() {
-	expect( 2 );
+	expect( 4 );
 
 	var element = $( "#draggable2" ).draggable();
 	TestHelpers.draggable.shouldMove( element, "cancel: default, span dragged", "#draggable2 span" );
@@ -228,7 +228,7 @@ test( "{ cancel: Selectors }, matching parent selector", function() {
 */
 
 test( "cancelement, default, switching after initialization", function() {
-	expect( 2 );
+	expect( 6 );
 
 	$( "<div id='draggable-option-cancel-default'><input type='text'></div>" ).appendTo( "#qunit-fixture" );
 
@@ -244,13 +244,166 @@ test( "cancelement, default, switching after initialization", function() {
 	TestHelpers.draggable.shouldNotDrag( element, "cancel: input, input dragged", input );
 });
 
-/*
-test( "{ connectToSortable: selector }, default", function() {
+test( "connectToSortable, dragging out of a sortable", function() {
+	expect( 4 );
+
+	var sortItem, dragHelper,
+		element = $( "#draggableSortable" ).draggable({
+			scroll: false,
+			connectToSortable: "#sortable"
+		}),
+		sortable = $( "#sortable" ).sortable({ revert: 100 }),
+		dx = 50,
+		dy = 50,
+		offsetBefore = element.offset(),
+		offsetExpected = {
+			left: offsetBefore.left + dx,
+			top: offsetBefore.top + dy
+		};
+
+	$( sortable ).one( "sortstart", function( event, ui ) {
+		sortItem = ui.item;
+	});
+
+	$( element ).one( "drag", function( event, ui ) {
+		dragHelper = ui.helper;
+	});
+
+	$( element ).one( "dragstop", function( event, ui ) {
+		// http://bugs.jqueryui.com/ticket/8809
+		// Position issue when connected to sortable
+		deepEqual( ui.helper.offset(), offsetExpected, "draggable offset is correct" );
+
+		// http://bugs.jqueryui.com/ticket/7734
+		// HTML IDs are removed when dragging to a Sortable
+		equal( sortItem[ 0 ], dragHelper[ 0 ], "both have the same helper" );
+		equal( sortItem.attr( "id" ), dragHelper.attr( "id" ), "both have the same id" );
+
+		// http://bugs.jqueryui.com/ticket/9481
+		// connectToSortable causes sortable revert to fail on second attempt
+		equal( sortable.sortable( "option", "revert" ), 100, "sortable revert behavior is preserved" );
+	});
+
+	element.simulate( "drag", {
+		dx: dx,
+		dy: dy
+	});
+});
+
+asyncTest( "connectToSortable, dragging clone into sortable", function() {
+	expect( 3 );
+
+	var offsetPlaceholder,
+		element = $( "#draggableSortableClone" ).draggable({
+			scroll: false,
+			connectToSortable: "#sortable",
+			helper: "clone"
+		}),
+		sortable = $( "#sortable" ).sortable({ revert: 100 }),
+		offsetSortable = sortable.offset();
+
+	$( sortable ).one( "sort", function( event, ui ) {
+		offsetPlaceholder = ui.placeholder.offset();
+		// http://bugs.jqueryui.com/ticket/8809
+		// Position issue when connected to sortable
+		deepEqual( ui.helper.offset(), offsetSortable, "sortable offset is correct" );
+		notDeepEqual( ui.helper.offset(), offsetPlaceholder, "offset not equal to placeholder" );
+	});
+
+	$( sortable ).one( "sortstop", function( event, ui ) {
+		// http://bugs.jqueryui.com/ticket/9675
+		// Animation issue with revert and connectToSortable
+		deepEqual( ui.item.offset(), offsetPlaceholder, "offset eventually equals placeholder" );
+		start();
+	});
+
+	element.simulate( "drag", {
+		x: offsetSortable.left + 1,
+		y: offsetSortable.top + 1,
+		moves: 1
+	});
+});
+
+test( "connectToSortable, dragging multiple elements in and out of sortable", function() {
 	expect( 1 );
 
-	ok(false, "missing test - untested code is broken code" );
+	var element = $( "#draggableSortableClone" ).draggable({
+			scroll: false,
+			connectToSortable: "#sortable",
+			helper: "clone"
+		}),
+		element2 = $( "#draggableSortable" ).draggable({
+			scroll: false,
+			connectToSortable: "#sortable"
+		}),
+		sortable = $( "#sortable" ).sortable({ revert: false }),
+		sortableOffset = sortable.offset();
+
+	// Move element into sortable
+	element.simulate( "drag", {
+		x: sortableOffset.left + 1,
+		y: sortableOffset.top + 1,
+		moves: 10
+	});
+
+	// Move element in sortable out
+	element2.simulate( "drag", {
+		dx: 200,
+		dy: 200,
+		moves: 10
+	});
+
+	// http://bugs.jqueryui.com/ticket/9675
+	// Animation issue with revert and connectToSortable
+	sortable.one( "sortstop", function( event, ui ) {
+		ok( !$.contains( document, ui.placeholder[ 0 ] ), "placeholder was removed" );
+	});
+
+	// Move the clone of the first element back out
+	$( "#sortable .sortable2Item" ).simulate( "drag", {
+		dx: 200,
+		dy: 200,
+		moves: 10
+	});
 });
-*/
+
+test( "connectToSortable, dragging through one sortable to a second", function() {
+	expect( 2 );
+
+	var overCount = 0,
+		element = $( "#draggableSortable" ).draggable({
+			scroll: false,
+			connectToSortable: ".sortable"
+		}),
+		delta = 200,
+		sortable = $( "#sortable" ).sortable({ revert: false }),
+		sortable2 = $( "#sortable2" ).sortable({ revert: false }),
+		sortable2Offset = sortable2.offset(),
+		dragParams = {
+			x: sortable2Offset.left + 25,
+			y: sortable2Offset.top + sortable.outerHeight() + delta,
+			moves: 10
+		};
+
+	$( sortable ).one( "sortover", function() {
+		overCount++;
+		sortable2.css( "top", "+=" + delta );
+	});
+
+	$( sortable2 ).on( "sortupdate", function() {
+		ok( true, "second sortable is updated" );
+	});
+
+	$( sortable2 ).one( "sortover", function() {
+		overCount++;
+	});
+
+	$( sortable2 ).one( "sortstop", function() {
+		equal( overCount, 2, "went over both sortables" );
+	});
+
+	element.simulate( "drag", dragParams );
+});
 
 test( "{ containment: Element }", function() {
 	expect( 1 );
@@ -390,8 +543,8 @@ test( "containment, element cant be pulled out of container", function() {
 		})
 		.draggable({ containment: "parent" })
 		.simulate( "drag", {
-			dx: 200,
-			dy: 200
+			dx: 500,
+			dy: 500
 		});
 
 	offsetBefore = element.offset();
@@ -615,7 +768,7 @@ test( "cursorAt, switching after initialization", function() {
 });
 
 test( "disabled", function() {
-	expect( 4 );
+	expect( 6 );
 
 	var element = $( "#draggable1" ).draggable();
 
@@ -660,7 +813,7 @@ test( "grid, switching after initialization", function() {
 });
 
 test( "{ handle: 'span' }", function() {
-	expect( 4 );
+	expect( 6 );
 
 	var element = $( "#draggable2" ).draggable({ handle: "span" });
 
@@ -670,7 +823,7 @@ test( "{ handle: 'span' }", function() {
 });
 
 test( "handle, default, switching after initialization", function() {
-	expect( 10 );
+	expect( 12 );
 
 	var element = $( "#draggable2" ).draggable();
 
@@ -1266,6 +1419,48 @@ test( "zIndex, default, switching after initialization", function() {
 	TestHelpers.draggable.move( element, 3, 1 );
 	equal( zindex, 1 );
 
+});
+
+test( "iframeFix", function() {
+	expect( 5 );
+
+	var element = $( "<div>" ).appendTo( "#qunit-fixture" ).draggable({ iframeFix: true }),
+		element2 = $( "<div>" ).appendTo( "#qunit-fixture" ).draggable({ iframeFix: ".iframe" }),
+		iframe = $( "<iframe>" ).appendTo( element );
+
+	element2
+		.append( "<iframe class='iframe'></iframe>" )
+		.append( "<iframe>" );
+
+	iframe.css({
+		width: 1,
+		height: 1
+	});
+
+	element.one( "drag", function() {
+		var div = $( this ).children().not( "iframe" );
+		// http://bugs.jqueryui.com/ticket/9671
+		// iframeFix doesn't handle iframes that move
+		equal( div.length, 1, "blocking div added as sibling" );
+		equal( div.outerWidth(), iframe.outerWidth(), "blocking div is wide enough" );
+		equal( div.outerHeight(), iframe.outerHeight(), "blocking div is tall enough" );
+		deepEqual( div.offset(), iframe.offset(), "blocking div is tall enough" );
+	});
+
+	element.simulate( "drag", {
+		dx: 1,
+		dy: 1
+	});
+
+	element2.one( "drag", function() {
+		var div = $( this ).children().not( "iframe" );
+		equal( div.length, 1, "blocking div added as sibling only to matching selector" );
+	});
+
+	element2.simulate( "drag", {
+		dx: 1,
+		dy: 1
+	});
 });
 
 })( jQuery );
