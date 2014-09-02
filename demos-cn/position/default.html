@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI Position - Default functionality</title>
+	<title>jQuery UI 定位（Position） - 默认功能</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/core.js"></script>
@@ -44,10 +44,14 @@
 	<script>
 	$(function() {
 		function position() {
-			$( ".positionable" ).position({
+			$( ".positionable" ).position({  // .positionable 被定位元素， #parent 目标元素/ 要定位的元素
+                //要定位的元素
 				of: $( "#parent" ),
+                //定义 被定位元素 上对准 目标元素的位置
 				my: $( "#my_horizontal" ).val() + " " + $( "#my_vertical" ).val(),
+                //定义 目标元素 上对准 被定位元素的位置
 				at: $( "#at_horizontal" ).val() + " " + $( "#at_vertical" ).val(),
+                //当被定位元素在某些方向上溢出窗口，则移动它到另一个位置
 				collision: $( "#collision_horizontal" ).val() + " " + $( "#collision_vertical" ).val()
 			});
 		}
@@ -68,24 +72,25 @@
 
 <div id="parent">
 	<p>
-	This is the position parent element.
+        这是父元素的位置。(目标元素/ 要定位的元素)
 	</p>
 </div>
 
 <div class="positionable" id="positionable1">
 	<p>
-	to position
+	to position  (被定位元素)
 	</p>
 </div>
 
+<!--
 <div class="positionable" id="positionable2">
 	<p>
 	to position 2
 	</p>
 </div>
-
+-->
 <div style="padding: 20px; margin-top: 75px;">
-	position...
+    定位...
 	<div style="padding-bottom: 20px;">
 		<b>my:</b>
 		<select id="my_horizontal">
@@ -130,8 +135,7 @@
 </div>
 
 <div class="demo-description">
-<p>Use the form controls to configure the positioning, or drag the positioned element to modify its offset.
-<br>Drag around the parent element to see collision detection in action.</p>
+<p>使用表单控件配置位置，或者拖拽被定位的元素来修改它的偏移量。向四周拖拽父元素来查看碰撞检测。</p>
 </div>
 </body>
 </html>

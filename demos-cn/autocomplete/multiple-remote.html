@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI Autocomplete - Multiple, remote</title>
+	<title>jQuery UI 自动完成（Autocomplete） - 多个值，远程</title>
 	<link rel="stylesheet" href="../../themes/base/all.css">
 	<script src="../../external/jquery/jquery.js"></script>
 	<script src="../../ui/core.js"></script>
@@ -27,6 +27,7 @@
 
 		$( "#birds" )
 			// don't navigate away from the field on tab when selecting an item
+            // 当选择一个条目时不离开文本域
 			.bind( "keydown", function( event ) {
 				if ( event.keyCode === $.ui.keyCode.TAB &&
 						$( this ).autocomplete( "instance" ).menu.active ) {
@@ -41,6 +42,7 @@
 				},
 				search: function() {
 					// custom minLength
+                    // 自定义最小长度
 					var term = extractLast( this.value );
 					if ( term.length < 2 ) {
 						return false;
@@ -48,15 +50,19 @@
 				},
 				focus: function() {
 					// prevent value inserted on focus
+                    // 防止在获得焦点时插入值
 					return false;
 				},
 				select: function( event, ui ) {
 					var terms = split( this.value );
 					// remove the current input
+                    // 移除当前输入
 					terms.pop();
 					// add the selected item
+                    // 添加被选项
 					terms.push( ui.item.value );
 					// add placeholder to get the comma-and-space at the end
+                    // 添加占位符，在结尾添加逗号+空格
 					terms.push( "" );
 					this.value = terms.join( ", " );
 					return false;
@@ -68,13 +74,13 @@
 <body>
 
 <div class="ui-widget">
-	<label for="birds">Birds: </label>
+	<label for="birds">鸟: </label>
 	<input id="birds" size="50">
 </div>
 
 <div class="demo-description">
-<p>Usage: Enter at least two characters to get bird name suggestions. Select a value to continue adding more names.</p>
-<p>This is an example showing how to use the source-option along with some events to enable autocompleting multiple values into a single field.</p>
+<p>用法：键入至少两个字符来获取鸟的名称。选择一个值，然后继续键入字符来添加其他的值。</p>
+<p>本实例演示如何使用 source 选项和一些事件来实现在一个单一的文本域输入多个自动完成的值。</p>
 </div>
 </body>
 </html>
